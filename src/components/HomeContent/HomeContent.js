@@ -12,9 +12,9 @@ import { Container } from '@material-ui/core';
 const drawerWidth = 240;
 const useStyles = makeStyles({
   container: {
-    marginTop: 20,
+    width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
-    maxWidth: 1100,
+
   },
 });
 
