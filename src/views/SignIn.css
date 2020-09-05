@@ -34,3 +34,9 @@ span.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1 {
   font-size: 10px;
   margin-right: 40px;
 }
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin-top: -30px;
+}

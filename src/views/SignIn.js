@@ -5,6 +5,7 @@ import EmailIcon from '@material-ui/icons/Email';
 import LockIcon from '@material-ui/icons/Lock';
 import logo from '../images/Logo_1.png';
 import './SignIn.css'
+import BotonSI from '../components/ButtonSI';
 
 
 const SignIn = () => {
@@ -57,11 +58,9 @@ const SignIn = () => {
             label="Forgot my password"
           />
           </div>
-
-          <Button size='small' variant="contained" color="primary" className='signIn'>
-            Sign In
-          </Button>
-
+          <div className='button'>
+            <BotonSI />
+          </div>
           </FormControl>      
 
         
