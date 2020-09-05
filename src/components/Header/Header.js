@@ -1,19 +1,18 @@
 import React from 'react';
-import './Header.css';
 import { makeStyles } from '@material-ui/core/styles';
 import { Menu, MenuItem, AppBar, Toolbar, InputBase, IconButton, Badge } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 
-const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
       },
       appBar: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
+        width: '30%',
+        marginLeft: '70%',
+        boxShadow: 'none',
       },
   search: {
     position: 'relative',
@@ -40,12 +39,6 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     [theme.breakpoints.up('md')]: {
       width: '20ch',
-    },
-  },
-  sectionDesktop: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
     },
   },
 }));

@@ -6,6 +6,8 @@ const useStyles = makeStyles({
   container: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
+    marginTop: 20,
+    marginBottom: 30,
   },
 });
 

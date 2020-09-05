@@ -10,10 +10,9 @@ function App() {
     <Fragment>
     <Menu />
     <Header />
-    <main>
           <Router>
             <Switch>
-              <Route exact path="/">
+              <Route exact path="/home">
                   <Home />
               </Route>
               <Route exact path="/actors">
@@ -21,7 +20,6 @@ function App() {
               </Route>
             </Switch>
           </Router>
-    </main>
     </Fragment>
   );
 }
