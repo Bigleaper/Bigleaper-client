@@ -1,0 +1,30 @@
+.containerGral {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1px auto;
+  border-radius: 10px;
+  width: 850px;
+  height: 900px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+  background-color: #ffff;
+  border-radius: 10px;
+  width: 850px;
+  height: 900px;
+}
+
+form {
+  margin-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 30px;
+}
