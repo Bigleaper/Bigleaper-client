@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import Menu from '../components/Menu/Menu';
 import Header from '../components/Header/Header';
-// import ViewTitle from '../components/ViewTitle/ViewTitle';
 import EFIdManageActors from '../components/EFIdManageActors/EFIdManageActors';
 import { makeStyles } from '@material-ui/core';
 

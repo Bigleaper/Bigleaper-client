@@ -37,3 +37,7 @@ function App() {
 }
 
 export default App;
+
+// mdi:clipboard-arrow-left
+// mdi:truck-delivery
+
