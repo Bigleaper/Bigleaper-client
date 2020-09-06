@@ -6,6 +6,7 @@ import AssignmentReturnIcon from '@material-ui/icons/AssignmentReturn';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import PeopleIcon from '@material-ui/icons/People';
 import BusinessIcon from '@material-ui/icons/Business';
+import {Link} from 'react-router-dom';
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
@@ -33,18 +34,18 @@ export default function PermanentDrawerLeft() {
         <div className={classes.toolbar} />
         <List component="nav" aria-labelledby="nested-list-subheader" className={classes.root}>
         <h3>Administrator</h3>
-        <ListItem button>
+        <Link to='/home'><ListItem button>
             <ListItemIcon><DashboardIcon /></ListItemIcon><ListItemText primary="Home" />
-        </ListItem>
+        </ListItem></Link>
         <ListItem button>
             <ListItemIcon><AssignmentReturnIcon /></ListItemIcon><ListItemText primary="Import Folios" />
         </ListItem>
         <ListItem button>
             <ListItemIcon><AssignmentReturnIcon /></ListItemIcon><ListItemText primary="Export Folios" />
         </ListItem>
-        <ListItem button>
+        <Link to='/actors'><ListItem button>
             <ListItemIcon><LocalShippingIcon /></ListItemIcon><ListItemText primary="Actors" />
-        </ListItem>
+        </ListItem></Link>
         <ListItem button>
             <ListItemIcon><PeopleIcon /></ListItemIcon><ListItemText primary="Users" />
         </ListItem>
