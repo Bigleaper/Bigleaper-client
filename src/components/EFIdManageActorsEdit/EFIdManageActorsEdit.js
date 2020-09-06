@@ -1,8 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import ButtonNew from './ButtonNew'
-import '../components/styles/EFIdManageActorsAdd.css';
+import './EFIdManageActorsEdit.css';
+import ButtonSaveGray from '../Bottons/ButtonSaveGray';
+import ButtonEdit from '../Bottons/ButtonEdit';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -14,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const EFIdManageActorsAdd = () => {
+const EFIdManageActorsEdit = () => {
 
   const classes = useStyles();
 /*   const [value, setValue] = React.useState('Controlled'); */
@@ -26,32 +27,46 @@ const EFIdManageActorsAdd = () => {
   return (
     <div className='containerGral'>
     <h2>Export Folios</h2>
-    <h3>Export Folio / Manage Actors / Add New Actor</h3>
+    <h3>Export Folio / Manage Actors</h3>
     <div className='container'>
+    <h5>Current Origin Carries:</h5>
       <form>
       <TextField
         id="outlined-textarea"
-        label="Label"
+        label="Origin Carrier"
         placeholder="Placeholder"
         multiline
         variant="outlined"
       />
       </form>
 
+    <h5>Current Forwarder:</h5>
       <form>
       <TextField
         id="outlined-textarea"
-        label="Label"
+        label="Forwarder"
         placeholder="Placeholder"
         multiline
         variant="outlined"
       />
       </form>
 
+    <h5>Current Origin Customs Broker:</h5>
       <form>
       <TextField
         id="outlined-textarea"
-        label="Label"
+        label="Origin Customs Broker"
+        placeholder="Placeholder"
+        multiline
+        variant="outlined"
+      />
+      </form>
+
+    <h5>Current Destinity Carrier:</h5>
+      <form>
+      <TextField
+        id="outlined-textarea"
+        label="Destinity Carrier"
         placeholder="Placeholder"
         multiline
         variant="outlined"
@@ -59,8 +74,8 @@ const EFIdManageActorsAdd = () => {
       </form>
 
       <div className='buttons'>
-        <ButtonNew />
-
+        <ButtonEdit />
+        <ButtonSaveGray />
       </div>
 
     </div>      
@@ -70,4 +85,4 @@ const EFIdManageActorsAdd = () => {
   )
 }
 
-export default EFIdManageActorsAdd;
+export default EFIdManageActorsEdit;

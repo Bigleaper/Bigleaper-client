@@ -2,12 +2,11 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import '../components/styles/EFIdManageActors.css';
+import './EFIdManageActors.css';
 
-import ButtonSave from './ButtonSave';
+import ButtonSave from '../Bottons/ButtonSave';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -57,12 +56,10 @@ const EFIdManageActors = () => {
             onChange={handleChangeCOC}
             label="oringinCarrier"
           >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <MenuItem value={10}>Origin Carrier</MenuItem>
+            <MenuItem value={20}>Origin Carrier</MenuItem>
+            <MenuItem value={30}>Origin Carrier</MenuItem>
+            <MenuItem value="">Other</MenuItem>
           </Select>
         </FormControl>
         
@@ -76,12 +73,10 @@ const EFIdManageActors = () => {
             onChange={handleChangeCF}
             label="forwarder"
           >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <MenuItem value={10}>Forwarder</MenuItem>
+            <MenuItem value={20}>Forwarder</MenuItem>
+            <MenuItem value={30}>Forwarder</MenuItem>
+            <MenuItem value="">Other</MenuItem>
           </Select>
         </FormControl>
 
@@ -95,12 +90,10 @@ const EFIdManageActors = () => {
             onChange={handleChangeOB}
             label="originBroker"
           >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <MenuItem value={10}>Forwarder</MenuItem>
+            <MenuItem value={20}>Forwarder</MenuItem>
+            <MenuItem value={30}>Forwarder</MenuItem>
+            <MenuItem value="">Other</MenuItem>
           </Select>
         </FormControl>
 
@@ -114,12 +107,10 @@ const EFIdManageActors = () => {
             onChange={handleChangeDC}
             label="destinityCarrier"
           >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <MenuItem value={10}>Destinity Carrier</MenuItem>
+            <MenuItem value={20}>Destinity Carrier</MenuItem>
+            <MenuItem value={30}>Destinity Carrier</MenuItem>
+            <MenuItem value="">Other</MenuItem>
           </Select>
         </FormControl>
       <div className='button'>

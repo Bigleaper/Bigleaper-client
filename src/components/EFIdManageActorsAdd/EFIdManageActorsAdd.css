@@ -1,3 +1,7 @@
+body {
+  background-color: #C4C7CB;
+}
+
 .containerGral {
   display: flex;
   flex-direction: column;
@@ -18,8 +22,13 @@
   height: 900px;
 }
 
-form {
-  margin-top: 10px;
+
+
+.MuiOutlinedInput-multiline {
+  padding: 20px 14px;
+  width: 300px;
+  margin-bottom: 50px;
+
 }
 
 .buttons {
