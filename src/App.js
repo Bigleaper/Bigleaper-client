@@ -1,28 +1,36 @@
-import React from 'react';
-import Signin from './views/SignIn';
-import LogoH from './components/LogoH'
-import ButtonNew from './components/ButtonNew';
-import ButtonSI from './components/ButtonSI';
-import EFIdManageActors from './components/EFIdManageActors';
-import EFIdManageActorsEdit from './components/EFIdManageActorsEdit';
-import EFIdManageActorsAdd from './components/EFIdManageActorsAdd';
+
+import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import SignIn from './views/SignIn';
+/* import EFIdManageActors from './components/EFIdManageActors/EFIdManageActors'; */
+/* import EFIdManageActorsAdd from './components/EFIdManageActorsAdd/EFIdManageActorsAdd' */
+import EFIdManageActorsEdit from './components/EFIdManageActorsEdit/EFIdManageActorsEdit'
 
 
 
 function App() {
   return (
-    <div className="App">
-      {/*  <Signin /> */}
-      {/*  <LogoH /> */}
-      {/* <ButtonSI /> */}
-      {/* <ButtonNew /> */}
-      {/* <EFIdManageActors /> */}
-      {/* <EFIdManageActorsEdit /> */}
-      <EFIdManageActorsAdd />
-     
+    <Fragment>
+      <Router>
+        <Switch>
+{/*           <Route exact path='/'>
+            <SignIn />
+          </Route> */}
 
+{/*           <Route exact path='/EFIdManageActors'>
+            <EFIdManageActors />
+          </Route>
+ */}
+{/*           <Route>
+            <EFIdManageActorsAdd />
+          </Route> */}
 
-    </div>
+          <Route>
+            <EFIdManageActorsEdit />
+          </Route>
+        </Switch>
+      </Router>
+    </Fragment>
   );
 }
 

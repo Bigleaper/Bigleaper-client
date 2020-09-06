@@ -1,8 +1,6 @@
 import React from 'react';
 import Logo_H from '../images/Logo-H.png';
-import '../components/styles/LogoH.css';
-
-
+import './LogoH.css';
 
 const LogoH = () => {
   return (
