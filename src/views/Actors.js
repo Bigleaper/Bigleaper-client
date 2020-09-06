@@ -3,6 +3,7 @@ import Menu from '../components/Menu/Menu';
 import Header from '../components/Header/Header';
 import ActorsTable from '../components/ActorsTable/ActorsTable'
 import ViewTitle from '../components/ViewTitle/ViewTitle';
+import ButtonNew from '../components/Bottons/ButtonNew';
 import { makeStyles } from '@material-ui/core';
 
 const drawerWidth = 240;
@@ -25,6 +26,7 @@ const Actors = () => {
       <Header />
       <div>
         <ViewTitle title={'Actors'} user={'Welcome usuario'}/>
+        <ButtonNew/>
         <div className={classes.container}>
           {allActors.map((actor, index) => (<ActorsTable key={index} actor={actor}/>))}
         </div>

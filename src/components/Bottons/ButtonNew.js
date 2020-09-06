@@ -4,6 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    margin: 20,
+    marginLeft: 265,
+  },
   button: {
     margin: theme.spacing(1),
     background: '#26364B',
@@ -15,7 +19,7 @@ const ButtonNew = () => {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.container}>
       <Button
         variant="contained"
         className={classes.button}
