@@ -5,8 +5,8 @@ import ActorsTable from '../components/ActorsTable/ActorsTable'
 import ViewTitle from '../components/ViewTitle/ViewTitle';
 import { makeStyles } from '@material-ui/core';
 
-export const drawerWidth = 240;
-export const useStyles = makeStyles({
+const drawerWidth = 240;
+const useStyles = makeStyles({
   container: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,

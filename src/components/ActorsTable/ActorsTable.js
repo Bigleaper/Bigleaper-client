@@ -2,7 +2,6 @@ import React from 'react';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { makeStyles, Container, ListItemText, Table, TableRow, TableCell, TableBody, Accordion, AccordionSummary, AccordionDetails, Typography } from '@material-ui/core';
 
-const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '35%',

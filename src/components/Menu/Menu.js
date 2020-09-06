@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
       drawerPaper: {
         width: drawerWidth,
       },
+      icon: {
+        color: '#26364B',
+      },
   }));
 
 export default function PermanentDrawerLeft() {
@@ -35,22 +38,22 @@ export default function PermanentDrawerLeft() {
         <List component="nav" aria-labelledby="nested-list-subheader" className={classes.root}>
         <h3>Administrator</h3>
         <Link to='/home'><ListItem button>
-            <ListItemIcon><DashboardIcon /></ListItemIcon><ListItemText primary="Home" />
+            <ListItemIcon><DashboardIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Home" />
         </ListItem></Link>
         <ListItem button>
-            <ListItemIcon><AssignmentReturnIcon /></ListItemIcon><ListItemText primary="Import Folios" />
+            <ListItemIcon><AssignmentReturnIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Import Folios" />
         </ListItem>
-        <ListItem button>
-            <ListItemIcon><AssignmentReturnIcon /></ListItemIcon><ListItemText primary="Export Folios" />
-        </ListItem>
+        <Link to='/exportfolios'><ListItem button>
+            <ListItemIcon><AssignmentReturnIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Export Folios" />
+        </ListItem></Link>
         <Link to='/actors'><ListItem button>
-            <ListItemIcon><LocalShippingIcon /></ListItemIcon><ListItemText primary="Actors" />
+            <ListItemIcon><LocalShippingIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Actors" />
         </ListItem></Link>
         <ListItem button>
-            <ListItemIcon><PeopleIcon /></ListItemIcon><ListItemText primary="Users" />
+            <ListItemIcon><PeopleIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Users" />
         </ListItem>
         <ListItem button>
-            <ListItemIcon><BusinessIcon /></ListItemIcon><ListItemText primary="Company" />
+            <ListItemIcon><BusinessIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Company" />
         </ListItem>
         </List>
       </Drawer>

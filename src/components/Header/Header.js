@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: '70%',
         boxShadow: 'none',
       },
+      icon: {
+        color: '#26364B',
+      },
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -79,7 +82,7 @@ const Header = () => {
         <Toolbar>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
-              <SearchIcon />
+              <SearchIcon className={classes.icon}/>
             </div>
             <InputBase
               placeholder="Search…"
@@ -92,7 +95,7 @@ const Header = () => {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 1 new notification" color="inherit">
+            <IconButton aria-label="show 1 new notification" color="inherit" className={classes.icon}>
               <Badge badgeContent={1} color="secondary">
                 <NotificationsIcon />
               </Badge>
@@ -103,6 +106,7 @@ const Header = () => {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
+              className={classes.icon}
             >
               <AccountCircle />
             </IconButton>
