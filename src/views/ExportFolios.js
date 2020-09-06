@@ -16,17 +16,17 @@ const useStyles = makeStyles({
 });
 
 const ExportFolios = () => {
-    const classes = useStyles();
-    return ( 
-        <Fragment>
-        <Menu />
-        <Header />
-        <div>
-            <ViewTitle title={'Export Folios'}/>
-                <Container className={classes.container}>
-                    <ExportFoliosTable />
-                </Container>
-        </div>
+  const classes = useStyles();
+  return ( 
+    <Fragment>
+      <Menu />
+      <Header />
+      <div>
+        <ViewTitle title={'Export Folios'}/>
+        <Container className={classes.container}>
+          <ExportFoliosTable />
+        </Container>
+      </div>
     </Fragment>
      );
 }

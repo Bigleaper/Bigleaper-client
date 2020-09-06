@@ -18,18 +18,18 @@ const useStyles = makeStyles({
 const allActors = ['Origin Career', 'Custom Broker', 'Forwarder', 'Destiny Career'];
 
 const Actors = () => {
-    const classes = useStyles();
-    return ( 
-        <Fragment>
-            <Menu />
-            <Header />
-            <div>
-                <ViewTitle title={'Actors'} user={'Welcome usuario'}/>
-                    <div className={classes.container}>
-                    {allActors.map((actor, index) => (<ActorsTable key={index} actor={actor}/>))}
-                    </div>
-            </div>
-        </Fragment>
+  const classes = useStyles();
+  return ( 
+    <Fragment>
+      <Menu />
+      <Header />
+      <div>
+        <ViewTitle title={'Actors'} user={'Welcome usuario'}/>
+        <div className={classes.container}>
+          {allActors.map((actor, index) => (<ActorsTable key={index} actor={actor}/>))}
+        </div>
+      </div>
+    </Fragment>
      );
 }
  

@@ -5,6 +5,7 @@ import ViewTitle from '../components/ViewTitle/ViewTitle';
 import { makeStyles, Container } from '@material-ui/core';
 import ExportSteps from '../components/ExportSteps/ExportSteps';
 import FloatingButton from '../components/FloatingButton/FloatingButton';
+import FolioInformation from '../components/FolioInformation/FolioInformation';
 
 const drawerWidth = 240;
 const useStyles = makeStyles({
@@ -27,6 +28,7 @@ const ExportFolioId = () => {
                 <Container className={classes.container}>
                     <ExportSteps />
                     <FloatingButton/>
+                    <FolioInformation/>
                 </Container>
         </div>
     </Fragment>
