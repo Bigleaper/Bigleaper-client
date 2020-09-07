@@ -6,6 +6,8 @@ import SignIn from './views/SignIn';
 import ExportFolios from './views/ExportFolios';
 import ExportFolioId from './views/ExportFolioId';
 import ManageActors from './views/ManageActors';
+import ExportFolioCreat from './views/ExportFolioCreat';
+import HomeGuest from './views/HomeGuest';
 
 function App() {
   return (
@@ -30,6 +32,13 @@ function App() {
           <Route exact path="/manageactors">
             <ManageActors />
           </Route>
+          <Route exact path="/exportfoliocreat">
+            <ExportFolioCreat />
+          </Route>
+          <Route exact path="/homeguest">
+            <HomeGuest />
+          </Route>
+
         </Switch>
       </Router>
     </Fragment>

@@ -4,7 +4,7 @@ import { FormControl, FormControlLabel, Input, InputAdornment, Checkbox } from '
 import EmailIcon from '@material-ui/icons/Email';
 import LockIcon from '@material-ui/icons/Lock';
 import logo from '../images/Logo_1.png';
-import './SignIn.css'
+import '../views/Styles/SignIn.css'
 import BotonSI from '../components/Bottons/ButtonSI';
 
 

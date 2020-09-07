@@ -23,8 +23,6 @@ body {
   height: 500px;
   background: #fff;
   border-radius: 10px;
-  border: 1px solid green;
-
 }
 
 input#input-with-icon-adornment {
