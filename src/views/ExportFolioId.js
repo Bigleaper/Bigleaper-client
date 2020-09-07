@@ -4,6 +4,8 @@ import Header from '../components/Header/Header';
 import ViewTitle from '../components/ViewTitle/ViewTitle';
 import { makeStyles, Container } from '@material-ui/core';
 import ExportSteps from '../components/ExportSteps/ExportSteps';
+import FloatingButton from '../components/FloatingButton/FloatingButton';
+import FolioInformation from '../components/FolioInformation/FolioInformation';
 
 const drawerWidth = 240;
 const useStyles = makeStyles({
@@ -13,6 +15,11 @@ const useStyles = makeStyles({
     display: 'flex',
     flexWrap: 'wrap',
   },
+  fbutton: {
+    position: 'fixed',
+    bottom: 80,
+    right: 20,
+  }
 });
 
 const ExportFolioId = () => {
@@ -25,6 +32,8 @@ const ExportFolioId = () => {
             <ViewTitle title={'Export Folios'}/>
                 <Container className={classes.container}>
                     <ExportSteps />
+                    <div className={classes.fbutton}><FloatingButton/></div>
+                    <FolioInformation/>
                 </Container>
         </div>
     </Fragment>

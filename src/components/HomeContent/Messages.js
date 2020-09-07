@@ -15,7 +15,7 @@ const Messages = () => {
     const classes = useStyles();
     return ( 
         <Container className={classes.container}>
-            <Typography>Messages</Typography>
+            <Typography variant='h6'>Messages</Typography>
         </Container>
      );
 }

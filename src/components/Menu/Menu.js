@@ -1,6 +1,7 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import './Menu.css';
+import LogoH from '../LogoH/LogoH';
+import { makeStyles, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import AssignmentReturnIcon from '@material-ui/icons/AssignmentReturn';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
@@ -36,7 +37,8 @@ export default function PermanentDrawerLeft() {
       <Drawer className={classes.drawer} variant="permanent" classes={{paper: classes.drawerPaper,}} anchor="left">
         <div className={classes.toolbar} />
         <List component="nav" aria-labelledby="nested-list-subheader" className={classes.root}>
-        <h3>Administrator</h3>
+        <Link to='/home'><LogoH/></Link>
+        <h3 className='menu-title'>Administrator</h3>
         <Link to='/home'><ListItem button>
             <ListItemIcon><DashboardIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Home" />
         </ListItem></Link>

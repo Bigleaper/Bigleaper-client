@@ -1,6 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Container } from '@material-ui/core';
+import { Container, makeStyles } from '@material-ui/core';
 import Messages from './Messages';
 import ActorValidation from './ActorValidation';
 import LastFolios from './LastFolios';
@@ -12,17 +11,17 @@ const useStyles = makeStyles({
     marginLeft: drawerWidth,
     display: 'flex',
     flexWrap: 'wrap',
+    marginBottom: 30,
   },
 });
 
- const HomeContent = () => {
+const HomeContent = () => {
   const classes = useStyles();
-
   return (
-      <Container className={classes.container}>
-        <Messages/>
-        <ActorValidation/>
-        <LastFolios/>
+    <Container className={classes.container}>
+      <Messages/>
+      <ActorValidation/>
+      <LastFolios/>
     </Container>
   );
 }
