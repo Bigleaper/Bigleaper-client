@@ -19,12 +19,12 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     width: '50%',
     backgroundColor: 'white',
-    padding: theme.spacing(2, 4, 3),
+    padding: theme.spacing(2),
     display: 'flex',
   },
   textField: {
     width: '90%',
-    margin: 10,
+    margin: 5,
   },
   closeBtn: {
     position: 'fixed',
@@ -85,9 +85,21 @@ const AddActorModal = ({actors, newActor, setNewActor}) => {
                 />
                 <TextField 
                     className={classes.textField} 
+                    label="Company Agent" 
+                    variant="outlined" 
+                    onChange={e=>setNewActor({...newActor, companyAgent: e.target.value})}
+                />
+                <TextField 
+                    className={classes.textField} 
                     label="Email" 
                     variant="outlined" 
                     onChange={e=>setNewActor({...newActor, email: e.target.value})}
+                />
+                <TextField 
+                    className={classes.textField} 
+                    label="Password" 
+                    variant="outlined" 
+                    onChange={e=>setNewActor({...newActor, password: e.target.value})}
                 />
                 <TextField 
                     className={classes.textField} 

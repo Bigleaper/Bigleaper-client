@@ -14,8 +14,11 @@ function App() {
     actorType: '',
     tradename: '',
     rfc: '',
+    companyAgent: '',
     email: '',
+    password: '',
     telephone: 0,
+    address: '',
   })
 console.log(newActor)
   return (
