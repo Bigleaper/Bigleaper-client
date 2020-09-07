@@ -9,7 +9,7 @@ import ManageActors from './views/ManageActors';
 
 function App() {
   const [user, setUser] = useState({email:'', password:''});
-  console.log(user)
+
   return (
     <Fragment>
       <Router>

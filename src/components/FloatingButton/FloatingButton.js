@@ -1,6 +1,7 @@
 import React from 'react';
 import { Fab, makeStyles, Menu, MenuItem } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
     fab: {
@@ -30,7 +31,7 @@ const FloatingButton = () => {
             onClose={handleClose}
         >
             <MenuItem onClick={handleClose}>Folio History</MenuItem>
-            <MenuItem onClick={handleClose}>Manage Actors</MenuItem>
+            <MenuItem onClick={handleClose}><Link to='/manageactors'>Manage Actors</Link></MenuItem>
             <MenuItem onClick={handleClose}>Folio Chat</MenuItem>
         </Menu>
         </div>

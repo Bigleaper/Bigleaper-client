@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ButtonNew = () => {
+const ButtonNew = ({assignedFunction}) => {
   const classes = useStyles();
 
   return (
@@ -24,6 +24,7 @@ const ButtonNew = () => {
         variant="contained"
         className={classes.button}
         startIcon={<AddIcon />}
+        onClick={assignedFunction}
       >
         NEW
       </Button>
