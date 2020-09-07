@@ -33,14 +33,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const AddActorModal = ({actors}) => {
+const AddActorModal = ({actors, newActor, setNewActor}) => {
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [actorType, setActorType] = useState();
-  const handleChange = (event) => setActorType(event.target.value);
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
@@ -54,13 +52,18 @@ const AddActorModal = ({actors}) => {
         </Container>
         <Container>
             <form className={classes.root} noValidate autoComplete="off">
-                <TextField className={classes.textField} label="Company Name" variant="outlined" />
+                <TextField 
+                    className={classes.textField} 
+                    label="Company Name" 
+                    variant="outlined" 
+                    onChange={e=>setNewActor({...newActor, companyName: e.target.value})} 
+                />
                 <FormControl variant="outlined" className={classes.textField}>
                     <InputLabel id="actor-type">Actor Type</InputLabel>
                     <Select
                         labelId="actor-type"
-                        value={actorType}
-                        onChange={handleChange}
+                        value={newActor.actorType}
+                        onChange={e=>setNewActor({...newActor, actorType: e.target.value})}
                     >
                         {actors.map((actor, index) => (
                             <MenuItem key={index} value={actor}>{actor}</MenuItem>
@@ -68,10 +71,31 @@ const AddActorModal = ({actors}) => {
                         }
                     </Select>
                 </FormControl>
-                <TextField className={classes.textField} label="Tradename" variant="outlined" />
-                <TextField className={classes.textField} label="RFC" variant="outlined" />
-                <TextField className={classes.textField} label="Email" variant="outlined" />
-                <TextField className={classes.textField} type="number" label="Telephone" variant="outlined" />
+                <TextField 
+                    className={classes.textField} 
+                    label="Tradename" 
+                    variant="outlined"
+                    onChange={e=>setNewActor({...newActor, tradename: e.target.value})} 
+                />
+                <TextField 
+                    className={classes.textField} 
+                    label="RFC" 
+                    variant="outlined" 
+                    onChange={e=>setNewActor({...newActor, rfc: e.target.value})}
+                />
+                <TextField 
+                    className={classes.textField} 
+                    label="Email" 
+                    variant="outlined" 
+                    onChange={e=>setNewActor({...newActor, email: e.target.value})}
+                />
+                <TextField 
+                    className={classes.textField} 
+                    type="number" 
+                    label="Telephone" 
+                    variant="outlined" 
+                    onChange={e=>setNewActor({...newActor, telephone: e.target.value})}
+                />
                 <ButtonSaveGreen/>
             </form>
         </Container>

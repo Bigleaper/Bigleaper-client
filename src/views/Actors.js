@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 
 const allActors = ['Origin Career', 'Custom Broker', 'Forwarder', 'Destiny Career'];
 
-const Actors = () => {
+const Actors = ({newActor, setNewActor}) => {
   const classes = useStyles();
   return ( 
     <Fragment>
@@ -27,7 +27,7 @@ const Actors = () => {
       <Header />
       <div>
         <ViewTitle title={'Actors'} user={'Welcome usuario'}/>
-        <AddActorModal actors={allActors}/>
+        <AddActorModal actors={allActors} newActor={newActor} setNewActor={setNewActor}/>
         <div className={classes.container}>
           {allActors.map((actor, index) => (<ActorsTable key={index} actor={actor}/>))}
         </div>

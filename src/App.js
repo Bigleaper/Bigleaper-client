@@ -9,7 +9,15 @@ import ManageActors from './views/ManageActors';
 
 function App() {
   const [user, setUser] = useState({email:'', password:''});
-
+  const [newActor, setNewActor] = useState({
+    companyName: '',
+    actorType: '',
+    tradename: '',
+    rfc: '',
+    email: '',
+    telephone: 0,
+  })
+console.log(newActor)
   return (
     <Fragment>
       <Router>
@@ -21,7 +29,7 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/actors">
-            <Actors />
+            <Actors newActor={newActor} setNewActor={setNewActor} />
           </Route>
           <Route exact path="/exportfolios">
             <ExportFolios />
