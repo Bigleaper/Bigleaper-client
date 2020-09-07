@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 30,
   }, 
   tablecontainer: {
-        width: '62%',  
+        width: '55%',  
       },
   heading: {
     fontSize: theme.typography.pxToRem(15),

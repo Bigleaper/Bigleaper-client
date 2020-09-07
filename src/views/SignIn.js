@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   }
 }));
-const SignIn = () => {
+const SignIn = ({user, setUser}) => {
   const classes = useStyles();
 
   return (
@@ -34,23 +34,23 @@ const SignIn = () => {
           <Input
             type='email'
             placeholder="Email Address *"
-            id="input-with-icon-adornment"
             startAdornment={
               <InputAdornment position="start">
                 <EmailIcon />
               </InputAdornment>
             }
+            onChange={e=>setUser({...user, email: e.target.value})}
           />         
           
           <Input
             type='password'
             placeholder="Password *"
-            id="input-with-icon-adornment"
             startAdornment={
               <InputAdornment position="start">
                 <LockIcon />
               </InputAdornment>
             }
+            onChange={e=>setUser({...user, password: e.target.value})}
           /> 
           <div className='checkbox'>
           <FormControlLabel

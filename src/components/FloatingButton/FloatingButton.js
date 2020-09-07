@@ -22,15 +22,16 @@ const FloatingButton = () => {
             <MenuIcon />
         </Fab>
         <Menu
+            className={classes.menu}
             id="simple-menu"
             anchorEl={anchorEl}
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleClose}
         >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
+            <MenuItem onClick={handleClose}>Folio History</MenuItem>
+            <MenuItem onClick={handleClose}>Manage Actors</MenuItem>
+            <MenuItem onClick={handleClose}>Folio Chat</MenuItem>
         </Menu>
         </div>
      );

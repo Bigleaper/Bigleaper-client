@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import Menu from '../components/Menu/Menu';
 import Header from '../components/Header/Header';
+import ButtonNew from '../components/Bottons/ButtonNew';
 import ViewTitle from '../components/ViewTitle/ViewTitle';
 import { makeStyles, Container } from '@material-ui/core';
 import ExportFoliosTable from '../components/ExportFoliosTable/ExportFoliosTable';
@@ -23,6 +24,7 @@ const ExportFolios = () => {
       <Header />
       <div>
         <ViewTitle title={'Export Folios'}/>
+        <ButtonNew/>
         <Container className={classes.container}>
           <ExportFoliosTable />
         </Container>

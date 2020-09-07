@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './views/Home';
 import Actors from './views/Actors';
@@ -8,12 +8,14 @@ import ExportFolioId from './views/ExportFolioId';
 import ManageActors from './views/ManageActors';
 
 function App() {
+  const [user, setUser] = useState({email:'', password:''});
+  console.log(user)
   return (
     <Fragment>
       <Router>
         <Switch>
           <Route exact path="/">
-            <SignIn />
+            <SignIn user={user} setUser={setUser} />
           </Route>
           <Route exact path="/home">
             <Home />
