@@ -4,26 +4,31 @@ body {
 
 .containerGral {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   margin: 1px auto;
   border-radius: 10px;
-  width: 850px;
-  height: 900px;
 }
 
 .container {
-  display: flex;
   flex-direction: column;
-  margin: 0px auto;
   background-color: #ffff;
+  justify-content: left;
   border-radius: 10px;
-  width: 850px;
-  height: 900px;
+  width: 550px;
+  height: 565px;
 }
 
-form {
-  margin-top: 10px;
+.container h5 {
+  margin: 10px 0px 5px 10px; 
+}
+
+.container .subtitle {
+  display: flex;
+  align-self: flex-start;
+  margin-left: 20px;
+}
+
+.fields {
+  display: flex;
 }
 
 .buttons {
