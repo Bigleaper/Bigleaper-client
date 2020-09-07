@@ -6,6 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import ButtonSaveGreen from '../Bottons/ButtonSaveGreen';
 import './EFIdManageActors.css';
+import AddActorModal from '../AddActorModal/AddActorModal';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const EFIdManageActors = () => {
+const EFIdManageActors = ({actors, newActor, setNewActor}) => {
 
   const classes = useStyles();
   const [originCarrier, setOriginCarrier] = React.useState('');
@@ -60,7 +61,7 @@ const EFIdManageActors = () => {
               <MenuItem value={10}>Origin Carrier</MenuItem>
               <MenuItem value={20}>Origin Carrier</MenuItem>
               <MenuItem value={30}>Origin Carrier</MenuItem>
-              <MenuItem value="">Add other</MenuItem>
+              <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor}/>
             </Select>
           </FormControl>
 
@@ -76,7 +77,7 @@ const EFIdManageActors = () => {
               <MenuItem value={10}>Origin Carrier</MenuItem>
               <MenuItem value={20}>Origin Carrier</MenuItem>
               <MenuItem value={30}>Origin Carrier</MenuItem>
-              <MenuItem value="">Add other</MenuItem>
+              <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor}/>
             </Select>
           </FormControl>
         </div>
@@ -95,7 +96,7 @@ const EFIdManageActors = () => {
               <MenuItem value={10}>Forwarder</MenuItem>
               <MenuItem value={20}>Forwarder</MenuItem>
               <MenuItem value={30}>Forwarder</MenuItem>
-              <MenuItem value="">Add other</MenuItem>
+              <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor}/>
             </Select>
           </FormControl>
 
@@ -111,7 +112,7 @@ const EFIdManageActors = () => {
               <MenuItem value={10}>Forwarder</MenuItem>
               <MenuItem value={20}>Forwarder</MenuItem>
               <MenuItem value={30}>Forwarder</MenuItem>
-              <MenuItem value="">Add other</MenuItem>
+              <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor}/>
             </Select>
           </FormControl>
         </div>
@@ -130,7 +131,7 @@ const EFIdManageActors = () => {
               <MenuItem value={10}>Forwarder</MenuItem>
               <MenuItem value={20}>Forwarder</MenuItem>
               <MenuItem value={30}>Forwarder</MenuItem>
-              <MenuItem value="">Add other</MenuItem>
+              <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor}/>
             </Select>
           </FormControl>
           
@@ -146,7 +147,7 @@ const EFIdManageActors = () => {
               <MenuItem value={10}>Forwarder</MenuItem>
               <MenuItem value={20}>Forwarder</MenuItem>
               <MenuItem value={30}>Forwarder</MenuItem>
-              <MenuItem value="">Add other</MenuItem>
+              <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor}/>
             </Select>
           </FormControl>
         </div>
@@ -165,7 +166,7 @@ const EFIdManageActors = () => {
               <MenuItem value={10}>Destinity Carrier</MenuItem>
               <MenuItem value={20}>Destinity Carrier</MenuItem>
               <MenuItem value={30}>Destinity Carrier</MenuItem>
-              <MenuItem value="">Add other</MenuItem>
+              <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor}/>
             </Select>
           </FormControl>
           
@@ -181,7 +182,7 @@ const EFIdManageActors = () => {
               <MenuItem value={10}>Destinity Carrier</MenuItem>
               <MenuItem value={20}>Destinity Carrier</MenuItem>
               <MenuItem value={30}>Destinity Carrier</MenuItem>
-              <MenuItem value="">Add other</MenuItem>
+              <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor}/>
             </Select>
           </FormControl>
         </div>

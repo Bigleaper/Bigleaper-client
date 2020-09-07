@@ -10,6 +10,7 @@ import ExportFolioCreat from './views/ExportFolioCreat';
 import HomeGuest from './views/HomeGuest';
 
 function App() {
+  const allActors = ['Origin Career', 'Custom Broker', 'Forwarder', 'Destiny Career'];
   const [user, setUser] = useState({email:'', password:''});
   const [newActor, setNewActor] = useState({
     companyName: '',
@@ -34,7 +35,7 @@ console.log(newActor)
             <Home />
           </Route>
           <Route exact path="/actors">
-            <Actors newActor={newActor} setNewActor={setNewActor} />
+            <Actors actors={allActors} newActor={newActor} setNewActor={setNewActor} />
           </Route>
           <Route exact path="/exportfolios">
             <ExportFolios />
@@ -43,7 +44,7 @@ console.log(newActor)
             <ExportFolioId />
           </Route>
           <Route exact path="/manageactors">
-            <ManageActors />
+            <ManageActors actors={allActors} newActor={newActor} setNewActor={setNewActor}/>
           </Route>
           <Route exact path="/exportfoliocreat">
             <ExportFolioCreat />
