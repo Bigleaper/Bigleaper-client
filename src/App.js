@@ -6,6 +6,8 @@ import SignIn from './views/SignIn';
 import ExportFolios from './views/ExportFolios';
 import ExportFolioId from './views/ExportFolioId';
 import ManageActors from './views/ManageActors';
+import ExportFolioCreat from './views/ExportFolioCreat';
+import HomeGuest from './views/HomeGuest';
 
 function App() {
   const [user, setUser] = useState({email:'', password:''});
@@ -43,6 +45,13 @@ console.log(newActor)
           <Route exact path="/manageactors">
             <ManageActors />
           </Route>
+          <Route exact path="/exportfoliocreat">
+            <ExportFolioCreat />
+          </Route>
+          <Route exact path="/homeguest">
+            <HomeGuest />
+          </Route>
+
         </Switch>
       </Router>
     </Fragment>

@@ -55,16 +55,17 @@ const ColorButton = withStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
   margin: {
     margin: theme.spacing(1),
+    color: '#fff',
   },
 }));
 
-const BotonSaveGreen = () => {
+const BotonSaveGreen = ({title}) => {
   const classes = useStyles();
 
   return (
     <div>
       <ColorButton variant="contained" color="primary" className={classes.margin}>
-        SAVE
+       {title}
       </ColorButton>
 
     </div>

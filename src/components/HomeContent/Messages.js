@@ -5,7 +5,9 @@ const useStyles = makeStyles({
     container: {
       width: '35%', 
       background: 'white', 
-      padding: 35,
+      borderRadius: '8px',
+      padding: '10px'
+      
     },
   });
 

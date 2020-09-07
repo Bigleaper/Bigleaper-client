@@ -45,6 +45,7 @@ const BootstrapButton = withStyles({
 const ColorButton = withStyles((theme) => ({
   root: {
     color: theme.palette.getContrastText(green[500]),
+    color: '#fff',
     background: 'linear-gradient(90deg, #D3E100 0%, #6DC732 100%)',
     '&:hover': {
       backgroundColor: green[700],
