@@ -4,7 +4,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles(theme => ({
     fab: {
-      margin: theme.spacing(1),
+      margin: theme.spacing(2),
       background: '#8CC841',
     },
   }));

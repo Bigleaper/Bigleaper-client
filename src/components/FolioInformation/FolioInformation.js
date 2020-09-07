@@ -2,7 +2,13 @@ import React from 'react';
 import { makeStyles, Container, Table, TableRow, TableCell, TableBody, TableContainer, Paper } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-    container: {
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: 40,
+    marginBottom: 30,
+  }, 
+  tablecontainer: {
         width: '62%',  
       },
   heading: {
@@ -36,8 +42,8 @@ const FolioInformation = ({actor}) => {
   const classes = useStyles();
 
   return (
-    <Container>
-        <TableContainer component={Paper} className={classes.container}>
+    <Container className={classes.container}>
+        <TableContainer component={Paper} className={classes.tablecontainer}>
           <Table aria-label="simple table">
             <TableBody>
               {rows.map((row) => (

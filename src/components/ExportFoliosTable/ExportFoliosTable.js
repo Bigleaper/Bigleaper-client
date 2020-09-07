@@ -1,5 +1,6 @@
 import React from 'react';
 import { TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, makeStyles } from '@material-ui/core';
+import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles({
     tableHeader: {
@@ -44,7 +45,7 @@ const ExportFoliosTable = () => {
                 {row.number}
               </TableCell>
               <TableCell align="center">{row.creationDate}</TableCell>
-              <TableCell align="center">{row.folioId}</TableCell>
+              <TableCell align="center"><Link to='/exportfolios/id'>{row.folioId}</Link></TableCell>
               <TableCell align="center">{row.expCompany}</TableCell>
               <TableCell align="center">{row.expCountry}</TableCell>
               <TableCell align="center">{row.impCompany}</TableCell>

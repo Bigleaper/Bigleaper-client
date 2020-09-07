@@ -13,6 +13,7 @@ const useStyles = makeStyles({
     marginLeft: drawerWidth,
     display: 'flex',
     flexWrap: 'wrap',
+    marginBottom: 30,
   },
 });
 

@@ -15,6 +15,11 @@ const useStyles = makeStyles({
     display: 'flex',
     flexWrap: 'wrap',
   },
+  fbutton: {
+    position: 'fixed',
+    bottom: 80,
+    right: 20,
+  }
 });
 
 const ExportFolioId = () => {
@@ -27,7 +32,7 @@ const ExportFolioId = () => {
             <ViewTitle title={'Export Folios'}/>
                 <Container className={classes.container}>
                     <ExportSteps />
-                    <FloatingButton/>
+                    <div className={classes.fbutton}><FloatingButton/></div>
                     <FolioInformation/>
                 </Container>
         </div>

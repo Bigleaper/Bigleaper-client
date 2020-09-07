@@ -1,6 +1,6 @@
-body {
+/* body {
   background-color: #26364B;
-}
+} */
 .container {
   display: flex;
   justify-content: center;
@@ -32,7 +32,8 @@ input#input-with-icon-adornment {
 }
 
 .checkbox {
-  margin-bottom: 20px;
+  height: 3rem;
+  margin-bottom: 10px;
 }
 
 span.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1 {
@@ -40,8 +41,3 @@ span.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1 {
   margin-right: 40px;
 }
 
-.button {
-  display: flex;
-  justify-content: center;
-  margin-top: -30px;
-}
