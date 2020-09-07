@@ -10,7 +10,8 @@ import { makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
     container: {
-      width: '62%',  
+      width: '56%',
+      padding: 30, 
     },
   });
 
@@ -27,7 +28,7 @@ const ActorValidation = () => {
     const classes = useStyles();
     return ( 
           <TableContainer component={Paper} className={classes.container}>
-          <Typography>Actor validation</Typography>
+          <Typography variant='h6'>Actor Validation</Typography>
             <Table aria-label="simple table">
               <TableHead>
                 <TableRow>

@@ -1,7 +1,6 @@
 import React from 'react';
-import './Menu.css';
-import LogoH from '../LogoH/LogoH';
-import { makeStyles, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import AssignmentReturnIcon from '@material-ui/icons/AssignmentReturn';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
@@ -37,8 +36,7 @@ export default function PermanentDrawerLeft() {
       <Drawer className={classes.drawer} variant="permanent" classes={{paper: classes.drawerPaper,}} anchor="left">
         <div className={classes.toolbar} />
         <List component="nav" aria-labelledby="nested-list-subheader" className={classes.root}>
-        <Link to='/home'><LogoH/></Link>
-        <h3 className='menu-title'>Administrator</h3>
+        <h3 align='center'>Guest</h3>
         <Link to='/home'><ListItem button>
             <ListItemIcon><DashboardIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Home" />
         </ListItem></Link>
@@ -48,15 +46,7 @@ export default function PermanentDrawerLeft() {
         <Link to='/exportfolios'><ListItem button>
             <ListItemIcon><AssignmentReturnIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Export Folios" />
         </ListItem></Link>
-        <Link to='/actors'><ListItem button>
-            <ListItemIcon><LocalShippingIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Actors" />
-        </ListItem></Link>
-        <ListItem button>
-            <ListItemIcon><PeopleIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Users" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon><BusinessIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Company" />
-        </ListItem>
+        
         </List>
       </Drawer>
   );

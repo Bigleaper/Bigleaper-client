@@ -1,15 +1,30 @@
 import React from 'react';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { makeStyles, Container, ListItemText, Table, TableRow, TableCell, TableBody, Accordion, AccordionSummary, AccordionDetails, Typography } from '@material-ui/core';
+import { makeStyles, Container, ListItemText, Table, TableRow, TableCell, TableBody, Accordion, AccordionSummary, AccordionDetails, Typography, Avatar } from '@material-ui/core';
+import { lightGreen } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '35%',
+    width: '45%',
+    background: 'white',
+    padding: 20,
+    marginTop: 10,
+    marginBottom: 10,
+    borderRadius: 5,
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
   },
+  accordion: {
+    border: 'solid',
+    borderRadius: 5,
+    borderColor: '#8CC841',
+  },
+  avatar: {
+    backgroundColor: lightGreen[500],
+    margin: 7,
+  }
 }));
 
 function createData(name, value) {
@@ -32,13 +47,14 @@ const ActorsTable = ({actor}) => {
 
   return (
     <Container className={classes.root}>
-    <Typography>{actor}</Typography>
-      <Accordion>
+    <Typography variant='h6'>{actor}</Typography>
+      <Accordion className={classes.accordion}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
+          <Avatar className={classes.avatar}>C</Avatar>
           <ListItemText primary="Tradename" secondary="Company Agent" />
         </AccordionSummary>
         <AccordionDetails>

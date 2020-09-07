@@ -1,8 +1,9 @@
 import React from 'react';
-import { Container, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Container } from '@material-ui/core';
 import Messages from './Messages';
-import ActorValidation from './ActorValidation';
-import LastFolios from './LastFolios';
+import GuestFolioSolicitado from './GuestFolioSolicitado'
+import GuestTask from './GuestTask'
 
 const drawerWidth = 240;
 const useStyles = makeStyles({
@@ -11,17 +12,17 @@ const useStyles = makeStyles({
     marginLeft: drawerWidth,
     display: 'flex',
     flexWrap: 'wrap',
-    marginBottom: 30,
   },
 });
 
-const HomeContent = () => {
+ const HomeContent = () => {
   const classes = useStyles();
+
   return (
-    <Container className={classes.container}>
-      <Messages/>
-      <ActorValidation/>
-      <LastFolios/>
+      <Container className={classes.container}>
+        <Messages />
+        <GuestFolioSolicitado />
+        <GuestTask />
     </Container>
   );
 }
