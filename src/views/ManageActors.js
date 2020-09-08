@@ -4,6 +4,7 @@ import Header from '../components/Header/Header';
 import ViewTitle from '../components/ViewTitle/ViewTitle';
 import EFIdManageActors from '../components/EFIdManageActors/EFIdManageActors';
 import { makeStyles } from '@material-ui/core';
+import { useParams } from 'react-router-dom';
 
 const drawerWidth = 240;
 const useStyles = makeStyles({
@@ -16,6 +17,8 @@ const useStyles = makeStyles({
 });
 const ManageActors = ({actors, newActor, setNewActor}) => {
     const classes = useStyles();
+    const {id} = useParams();
+    console.log(id)
     return ( 
       <Fragment>
         <Menu />

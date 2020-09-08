@@ -48,6 +48,7 @@ const AddActorModal = ({actors, newActor, setNewActor, manageactors}) => {
         <p>Your new actor will add to your Actors List as a guest actor when you complete this form.</p>
         <p>Bigleaper will contact your new company actor to request legal information.</p>
         <p>You will be able to check status validation of that company on Home or Agents module.</p>
+        <p>You must asign a provisional password for your Guest Actor.</p>
         <p>Important: estimated time for validation is from 48 to 72 hours.</p>
       </Container>
       <Container>

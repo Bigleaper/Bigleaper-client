@@ -23,7 +23,6 @@ function App() {
     telephone: 0,
     address: '',
   })
-console.log(newActor)
   return (
     <Fragment>
       <Router>
@@ -40,10 +39,10 @@ console.log(newActor)
           <Route exact path="/exportfolios">
             <ExportFolios />
           </Route>
-          <Route exact path="/exportfolios/id">
+          <Route exact path="/exportfolios/:id">
             <ExportFolioId />
           </Route>
-          <Route exact path="/manageactors">
+          <Route exact path="/manageactors/:id">
             <ManageActors actors={allActors} newActor={newActor} setNewActor={setNewActor}/>
           </Route>
           <Route exact path="/exportfoliocreat">
