@@ -41,11 +41,11 @@ const ManageActors = ({ actors, newActor, setNewActor }) => {
     }
     try {
       console.log(newManageActor);
-      const response = await clientAxios.post(`/exportfolios/${id}/manageactors/`, newManageActor)
+      const response = await clientAxios.post(`/exportfolios/${id}/manageactors`, newManageActor)
       console.log(response);
       /*setManageActors(response.data) */
     } catch (error) {
-      console.log(error)
+      console.log(error.response)
     }
   }
 
