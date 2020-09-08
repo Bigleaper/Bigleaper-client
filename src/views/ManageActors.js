@@ -32,7 +32,7 @@ const ManageActors = ({ actors, newActor, setNewActor }) => {
 
 
   //const [manageActors, setManageActors] = useState([])
-
+  const { currentOriginCarrier, currentForwarder, currentCustomsBroker, currentDestinyCarrier } = newManageActor
 
   const postManageActors = async () => {
     const token = localStorage.getItem('token')
@@ -41,9 +41,14 @@ const ManageActors = ({ actors, newActor, setNewActor }) => {
     }
     try {
       console.log(newManageActor);
-      const response = await clientAxios.post(`/exportfolios/${id}/manageactors`, newManageActor)
-      console.log(response);
-      /*setManageActors(response.data) */
+      if (currentOriginCarrier !== '' || currentForwarder !== '' || currentCustomsBroker !== '' || currentDestinyCarrier !== '') {
+        console.log('holi');
+        const response = await clientAxios.post(`/exportfolios/${id}/manageactors`, newManageActor)
+        console.log(response);
+        /*setManageActors(response.data) */
+        return
+      }
+      console.log('state vacío')
     } catch (error) {
       console.log(error.response)
     }
