@@ -11,14 +11,13 @@ import { makeStyles, Typography } from '@material-ui/core';
 const useStyles = makeStyles({
     container: {
       width: '60%', 
-      padding: '15px 15px 100px', 
-      marginLeft: '25px',
-      borderRadius: '8px',
-      
+      padding: '15px 15px 50px', 
+      borderRadius: '8px',      
     },
     tableRow: {
       border: 'solid',
       borderColor: '#CAF199',
+      borderRadius: '10px',
   }
   });
 
@@ -44,7 +43,7 @@ const GuestFolioSolicitado = () => {
                   <TableCell align="center">Status</TableCell>
                 </TableRow>
               </TableHead>
-              <TableBody border='1px solid green'>
+              <TableBody>
                 {rows.map((row) => (
                   <TableRow key={row.FolioID} className={classes.tableRow}>
                     <TableCell align="center" component="th" scope="row">

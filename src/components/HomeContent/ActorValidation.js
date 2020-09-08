@@ -11,6 +11,7 @@ import { makeStyles, Typography } from '@material-ui/core';
 const useStyles = makeStyles({
     container: {
       width: '56%',
+      borderRadius: '8px',
       padding: 30, 
     },
   });
