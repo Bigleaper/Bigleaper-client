@@ -6,11 +6,12 @@ const useStyles = makeStyles({
       width: '35%', 
       background: 'white', 
       borderRadius: '8px',
-      padding: '10px'      
+      padding: '10px',  
+      marginLeft: '0'  
     },
   });
 
-const Messages = () => {
+const GuestMessages = () => {
     const classes = useStyles();
     return ( 
         <Container className={classes.container}>
@@ -19,4 +20,4 @@ const Messages = () => {
      );
 }
  
-export default Messages;
+export default GuestMessages;

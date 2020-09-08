@@ -6,13 +6,14 @@ const useStyles = makeStyles((theme) => ({
     container: {
       width: '100%',
       marginTop: 20,
-      padding: '30px 30px 100px',
+      padding: '30px 30px 50px',
+      marginBottom: '50px',
       borderRadius: '8px'
     },
     tableRow: {
         border: 'solid',
         borderColor: '#CAF199',
-        borderRadius: '10px'
+        borderRadius: '10px',
     },
     root: {
       display: 'flex',
@@ -23,8 +24,6 @@ const useStyles = makeStyles((theme) => ({
       marginRight: theme.spacing(1),
       width: '25ch',
     },
-
-
   }));
 
   function createData(number, date, folioId, exportingCompany, importingCompany, status) {

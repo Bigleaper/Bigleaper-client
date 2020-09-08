@@ -56,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
   margin: {
     margin: theme.spacing(1),
     color: '#fff',
+    background: 'linear-gradient(90deg, #D3E100 0%, #6DC732 100%)',
   },
 }));
 
@@ -64,9 +65,9 @@ const BotonSaveGreen = ({title}) => {
 
   return (
     <div>
-      <ColorButton variant="contained" color="primary" className={classes.margin}>
+      <Button variant="contained" color="primary" className={classes.margin}>
        {title}
-      </ColorButton>
+      </Button>
 
     </div>
   );

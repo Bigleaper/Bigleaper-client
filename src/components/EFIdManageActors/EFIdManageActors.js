@@ -187,7 +187,7 @@ const EFIdManageActors = () => {
         </div>
         
       <div className='button'>
-        <ButtonSaveGreen />
+        <ButtonSaveGreen title={'SAVE'}/>
       </div>
       </div>      
     </div>

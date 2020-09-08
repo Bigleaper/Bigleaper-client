@@ -1,9 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
-import Messages from './Messages';
 import GuestFolioSolicitado from './GuestFolioSolicitado'
 import GuestTask from './GuestTask'
+import GuestMessages from './GuestMessages';
 
 const drawerWidth = 240;
 const useStyles = makeStyles({
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 
   return (
       <Container className={classes.container}>
-        <Messages />
+        <GuestMessages />
         <GuestFolioSolicitado />
         <GuestTask />
     </Container>

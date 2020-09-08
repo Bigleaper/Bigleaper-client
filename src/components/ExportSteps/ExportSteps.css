@@ -1,0 +1,7 @@
+.MuiStepIcon-root.MuiStepIcon-active {
+  color: green;
+}
+
+.MuiStepIcon-root.MuiStepIcon-completed {
+  color: pink;
+}
