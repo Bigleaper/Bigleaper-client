@@ -49,7 +49,7 @@ const ExportFolios = () => {
         <ViewTitle title={'Export Folios'} />
         <ButtonNew />
         <Container className={classes.container}>
-          <ExportFoliosTable />
+          <ExportFoliosTable folios={folios} />
         </Container>
       </div>
     </Fragment>
