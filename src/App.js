@@ -9,20 +9,11 @@ import ManageActors from './views/ManageActors';
 import ExportFolioCreat from './views/ExportFolioCreat';
 import HomeGuest from './views/HomeGuest';
 
+
 function App() {
-  const [user, setUser] = useState({email:'', password:''});
-  const [newActor, setNewActor] = useState({
-    companyName: '',
-    actorType: '',
-    tradename: '',
-    rfc: '',
-    companyAgent: '',
-    email: '',
-    password: '',
-    telephone: 0,
-    address: '',
-  })
-console.log(newActor)
+  const [user, setUser] = useState({ email: '', password: '' });
+
+
   return (
     <Fragment>
       <Router>
@@ -34,7 +25,7 @@ console.log(newActor)
             <Home />
           </Route>
           <Route exact path="/actors">
-            <Actors newActor={newActor} setNewActor={setNewActor} />
+            <Actors />
           </Route>
           <Route exact path="/exportfolios">
             <ExportFolios />
@@ -51,7 +42,6 @@ console.log(newActor)
           <Route exact path="/homeguest">
             <HomeGuest />
           </Route>
-
         </Switch>
       </Router>
     </Fragment>

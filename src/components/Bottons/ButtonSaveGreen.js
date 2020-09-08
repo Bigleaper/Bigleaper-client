@@ -60,13 +60,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const BotonSaveGreen = ({title}) => {
+const BotonSaveGreen = ({ title, functionToExecute }) => {
   const classes = useStyles();
 
   return (
     <div>
-      <Button variant="contained" color="primary" className={classes.margin}>
-       {title}
+      <Button variant="contained" color="primary" className={classes.margin} onClick={functionToExecute}>
+        {title}
       </Button>
 
     </div>
