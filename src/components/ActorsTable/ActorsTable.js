@@ -25,18 +25,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: lightGreen[500],
     margin: 7,
   },
-  list: {
-    width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
 }));
 
 const ActorsTable = ({actor, getAllActors}) => {
-  console.log(getAllActors)
   const classes = useStyles();
   const filtered = getAllActors.filter(a => a.typeCompany === actor)
-  console.log(filtered)
 
   return (
     <Container className={classes.root}>
