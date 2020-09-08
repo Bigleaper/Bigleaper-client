@@ -25,7 +25,6 @@ const Actors = ({actors, newActor, setNewActor}) => {
   const classes = useStyles();
   //state with actors
   const [getAllActors, setGetAllActors] = useState([]);
-
   const getActors = async () => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -53,7 +52,7 @@ const Actors = ({actors, newActor, setNewActor}) => {
         <ViewTitle title={'Actors'} user={'Welcome usuario'}/>
         <AddActorModal actors={actors} newActor={newActor} setNewActor={setNewActor}/>
         <div className={classes.container}>
-          {actors.map((actor, index) => (<ActorsTable key={index} actor={actor}/>))}
+          {actors.map((actor, index) => (<ActorsTable key={index} actor={actor} getAllActors={getAllActors}/>))}
         </div>
       </div>
     </Fragment>

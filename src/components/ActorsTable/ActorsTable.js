@@ -1,6 +1,6 @@
 import React from 'react';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { makeStyles, Container, ListItemText, Table, TableRow, TableCell, TableBody, Accordion, AccordionSummary, AccordionDetails, Typography, Avatar } from '@material-ui/core';
+import { makeStyles, Container, ListItemText, Accordion, AccordionSummary, AccordionDetails, Typography, Avatar } from '@material-ui/core';
 import { lightGreen } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
@@ -24,54 +24,45 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: lightGreen[500],
     margin: 7,
-  }
+  },
+  list: {
+    width: '100%',
+    maxWidth: 360,
+    backgroundColor: theme.palette.background.paper,
+  },
 }));
 
-function createData(name, value) {
-  return { name, value };
-}
-
-const rows = [
-  createData('Actor number:', 'value' ),
-  createData('Company:', 'value' ),
-  createData('RFC:', 'value' ),
-  createData('Telephone:', 'value' ),
-  createData('Email:', 'value' ),
-  createData('Address:', 'value' ),
-  createData('Status:', 'value' ),
-
-];
-
-const ActorsTable = ({actor}) => {
+const ActorsTable = ({actor, getAllActors}) => {
+  console.log(getAllActors)
   const classes = useStyles();
+  const filtered = getAllActors.filter(a => a.typeCompany === actor)
+  console.log(filtered)
 
   return (
     <Container className={classes.root}>
     <Typography variant='h6'>{actor}</Typography>
-      <Accordion className={classes.accordion}>
+      {filtered.map(ac => 
+        <Accordion key={ac._id} className={classes.accordion}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
           <Avatar className={classes.avatar}>C</Avatar>
-          <ListItemText primary="Tradename" secondary="Company Agent" />
+          <ListItemText primary={ac.tradeName} secondary={ac.companyAgent} />
         </AccordionSummary>
         <AccordionDetails>
-          <Table aria-label="simple table">
-            <TableBody>
-              {rows.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="right">{row.value}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+          <table>
+            <tr><th>Actor number: </th><td>{ac._id}</td></tr>
+            <tr><th>Company: </th><td>{ac.companyName}</td></tr>
+            <tr><th>RFC: </th><td>{ac.rfc}</td></tr>
+            <tr><th>Telephone: </th><td>{ac.telephone}</td></tr>
+            <tr><th>Email: </th><td>{ac.email}</td></tr>
+            <tr><th>Address: </th><td>{ac.address}</td></tr>
+            <tr><th>Status: </th><td>{ac.status}</td></tr>
+          </table>
         </AccordionDetails>
-      </Accordion>
+      </Accordion>)}
     </Container>
   );
 }
