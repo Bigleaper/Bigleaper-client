@@ -188,7 +188,7 @@ const EFIdManageActors = ({actors, newActor, setNewActor}) => {
         </div>
         
       <div className='button'>
-        <ButtonSaveGreen />
+        <ButtonSaveGreen title={'SAVE'}/>
       </div>
       </div>      
     </div>

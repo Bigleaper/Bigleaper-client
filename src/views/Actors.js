@@ -1,10 +1,13 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Menu from '../components/Menu/Menu';
 import Header from '../components/Header/Header';
 import ActorsTable from '../components/ActorsTable/ActorsTable'
 import ViewTitle from '../components/ViewTitle/ViewTitle';
 import AddActorModal from '../components/AddActorModal/AddActorModal';
 import { makeStyles } from '@material-ui/core';
+import tokenAuth from '../config/tokenAuth';
+import clientAxios from '../config/axios'
+
 
 const drawerWidth = 240;
 const useStyles = makeStyles({
@@ -18,8 +21,31 @@ const useStyles = makeStyles({
 });
 
 const Actors = ({actors, newActor, setNewActor}) => {
+
   const classes = useStyles();
-  return ( 
+  //state with actors
+  const [getAllActors, setGetAllActors] = useState([]);
+
+  const getActors = async () => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      tokenAuth(token)
+    }
+    try {
+      const response = await clientAxios.get('/actors')
+      console.log(response);
+      setGetAllActors(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getActors()
+  }, [])
+
+
+  return (
     <Fragment>
       <Menu />
       <Header />
@@ -31,7 +57,7 @@ const Actors = ({actors, newActor, setNewActor}) => {
         </div>
       </div>
     </Fragment>
-     );
+  );
 }
- 
+
 export default Actors;

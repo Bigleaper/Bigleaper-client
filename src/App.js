@@ -9,20 +9,22 @@ import ManageActors from './views/ManageActors';
 import ExportFolioCreat from './views/ExportFolioCreat';
 import HomeGuest from './views/HomeGuest';
 
+
 function App() {
-  const allActors = ['Origin Career', 'Custom Broker', 'Forwarder', 'Destiny Career'];
+  const allActors = ['import/export', 'carrier', 'forwarder', 'customsBroker'];
   const [user, setUser] = useState({email:'', password:''});
   const [newActor, setNewActor] = useState({
     companyName: '',
-    actorType: '',
-    tradename: '',
+    tradeName: '',
+    typeCompany: '',
     rfc: '',
+    telephone: 0,
     companyAgent: '',
     email: '',
     password: '',
-    telephone: 0,
     address: '',
   })
+  
   return (
     <Fragment>
       <Router>
@@ -51,7 +53,6 @@ function App() {
           <Route exact path="/homeguest">
             <HomeGuest />
           </Route>
-
         </Switch>
       </Router>
     </Fragment>
