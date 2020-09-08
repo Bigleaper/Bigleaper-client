@@ -21,25 +21,24 @@ const createData = (name, value) => {
     return { name, value };
 }
 
-const rows = [
-  createData('Folio ID:', 'value' ),
-  createData('Create Date:', 'value' ),
-  createData('Create By:', 'value' ),
-  createData('Counterpart:', 'value' ),
-  createData('Type:', 'value' ),
-  createData('Incoterm:', 'value' ),
-  createData('Product Description:', 'value' ),
-  createData('Product Amount:', 'value' ),
-  createData('Currency:', 'value' ),
-  createData('Status:', 'value' ),
-  createData('Delivery Address:', 'value' ),
-  createData('ZIP Code:', 'value' ),
-  createData('Origin Country:', 'value' ),
-  createData('Destination Country:', 'value' ),
-];
-
-const FolioInformation = ({actor}) => {
+const FolioInformation = ({actor, folio}) => {
   const classes = useStyles();
+  const rows = [
+    createData('Folio ID:', folio[0].FolioID ),
+    createData('Create Date:', folio[0].CreateDate ),
+    createData('Create By:', folio[0].CreateBy ),
+    createData('Counterpart:', folio[0].Counterpart ),
+    createData('Type:', folio[0].Type ),
+    createData('Incoterm:', folio[0].Incoterm ),
+    createData('Product Description:', folio[0].ProductDescription ),
+    createData('Product Amount:', folio[0].ProductAmount ),
+    createData('Currency:', folio[0].Currency ),
+    createData('Status:', folio[0].Status ),
+    createData('Delivery Address:', folio[0].DeliveryAddress ),
+    createData('ZIP Code:', folio[0].ZIPCode ),
+    createData('Origin Country:', folio[0].OriginCountry ),
+    createData('Destination Country:', folio[0].DestinationCountry ),
+  ];
 
   return (
     <Container className={classes.container}>

@@ -59,12 +59,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const BotonSI = () => {
+const BotonSI = ({ signInUser }) => {
   const classes = useStyles();
+
+
 
   return (
     <div>
-      <ColorButton variant="contained" color="primary" className={classes.margin}>
+      <ColorButton variant="contained" color="primary" className={classes.margin}
+        onClick={signInUser}
+      >
         SIGN IN
       </ColorButton>
 

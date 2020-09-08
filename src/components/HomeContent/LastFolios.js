@@ -6,6 +6,7 @@ const useStyles = makeStyles({
     width: '100%',
     marginTop: 20,
     marginLeft: 15,
+    borderRadius: 8,
     padding: 30,
   },
   tableRow: {
