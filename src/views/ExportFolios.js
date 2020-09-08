@@ -22,7 +22,6 @@ const useStyles = makeStyles({
 const ExportFolios = () => {
   const classes = useStyles();
   const [folios, setFolios] = useState([])
-console.log(folios)
   const getFolios = async () => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -49,7 +48,7 @@ console.log(folios)
         <ViewTitle title={'Export Folios'} />
         <ButtonNew />
         <Container className={classes.container}>
-          <ExportFoliosTable />
+          <ExportFoliosTable folios={folios} />
         </Container>
       </div>
     </Fragment>
