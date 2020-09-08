@@ -5,16 +5,16 @@ import ViewTitle from '../components/ViewTitle/ViewTitle';
 import HomeContent from '../components/HomeContent/HomeContent';
 
 const Home = () => {
-    return ( 
+    return (
         <Fragment>
             <Menu />
             <Header />
             <div>
                 <ViewTitle title={'Home'} user={'Welcome usuario'} />
-                <HomeContent/>
+                <HomeContent />
             </div>
         </Fragment>
-     );
+    );
 }
- 
+
 export default Home;
