@@ -1,22 +1,13 @@
 import React from 'react';
 import { TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, makeStyles } from '@material-ui/core';
 import {Link} from 'react-router-dom';
+import data from '../../prueba';
 
 const useStyles = makeStyles({
     tableHeader: {
       background: '#CAF199',
     },
   });
-
-const createData = (number, creationDate, folioId, expCompany, expCountry, impCompany, impCountry, status, sumary, expenses, incotermRiskStatus) => {
-    return { number, creationDate, folioId, expCompany, expCountry, impCompany, impCountry, status, sumary, expenses, incotermRiskStatus };
-  }
-  
-  const rows = [
-    createData(1, '04/04/2020', '4U5H6HJYN45N6J', 'Exportadora M', 'MX', 'Importadora US', 'US', 'Accepted', 'Sumary', 'Expenses', 'Exporter'),
-    createData(2, '04/04/2020', '4U5YN45JK76N6J', 'Exportadora M', 'MX', 'Importadora US', 'US', 'Accepted', 'Sumary', 'Expenses', 'Exporter'),
-    createData(3, '04/04/2020', '4U5H6HN6JPLK54', 'Exportadora M', 'MX', 'Importadora US', 'US', 'Accepted', 'Sumary', 'Expenses', 'Exporter')
-  ];
 
 const ExportFoliosTable = () => {
     const classes = useStyles();
@@ -39,22 +30,20 @@ const ExportFoliosTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.folioId}>
-              <TableCell component="th" scope="row">
-                {row.number}
-              </TableCell>
-              <TableCell align="center">{row.creationDate}</TableCell>
-              <TableCell align="center"><Link to='/exportfolios/id'>{row.folioId}</Link></TableCell>
-              <TableCell align="center">{row.expCompany}</TableCell>
-              <TableCell align="center">{row.expCountry}</TableCell>
-              <TableCell align="center">{row.impCompany}</TableCell>
-              <TableCell align="center">{row.impCountry}</TableCell>
-              <TableCell align="center">{row.status}</TableCell>
-              <TableCell align="center">{row.sumary}</TableCell>
-              <TableCell align="center">{row.expenses}</TableCell>
-              <TableCell align="center">{row.incotermRiskStatus}</TableCell>
-            </TableRow>
+          {data.map((folio, index) => (
+            <TableRow key={folio.FolioID}>
+                <TableCell component="th" scope="row">{index+1}</TableCell>
+                <TableCell align="center">{folio.CreateDate}</TableCell>
+                <TableCell align="center"><Link to={`/exportfolios/${folio.FolioID}`}>{folio.FolioID}</Link></TableCell>
+                <TableCell align="center">{folio.CreateBy}</TableCell>
+                <TableCell align="center">{folio.OriginCountry}</TableCell>
+                <TableCell align="center">{folio.Counterpart}</TableCell>
+                <TableCell align="center">{folio.DestinationCountry}</TableCell>
+                <TableCell align="center">{folio.Status}</TableCell>
+                <TableCell align="center">{folio.Currency}</TableCell>
+                <TableCell align="center">{folio.ProductAmount}</TableCell>
+                <TableCell align="center">{folio.Incoterm}</TableCell>
+              </TableRow>
           ))}
         </TableBody>
       </Table>

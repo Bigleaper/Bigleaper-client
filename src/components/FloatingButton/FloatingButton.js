@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
-const FloatingButton = () => {
+const FloatingButton = ({folioid}) => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -31,7 +31,7 @@ const FloatingButton = () => {
             onClose={handleClose}
         >
             <MenuItem onClick={handleClose}>Folio History</MenuItem>
-            <MenuItem onClick={handleClose}><Link to='/manageactors'>Manage Actors</Link></MenuItem>
+            <MenuItem onClick={handleClose}><Link to={`/manageactors/${folioid}`}>Manage Actors</Link></MenuItem>
             <MenuItem onClick={handleClose}>Folio Chat</MenuItem>
         </Menu>
         </div>

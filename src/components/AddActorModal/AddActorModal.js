@@ -19,9 +19,9 @@ const getModalStyle = () => {
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
-    width: '50%',
+    width: '60%',
     backgroundColor: 'white',
-    padding: theme.spacing(2),
+    padding: 5,
     display: 'flex',
   },
   textField: {
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const AddActorModal = ({ actors, newActor, setNewActor }) => {
+const AddActorModal = ({actors, newActor, setNewActor, manageactors}) => {
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
   const [open, setOpen] = useState(false);
@@ -55,12 +55,13 @@ const AddActorModal = ({ actors, newActor, setNewActor }) => {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <IconButton className={classes.closeBtn} onClick={handleClose}><CloseIcon /></IconButton>
+      <IconButton className={classes.closeBtn} onClick={handleClose}><CloseIcon/></IconButton>
       <Container>
         <h2>Validation Info</h2>
         <p>Your new actor will add to your Actors List as a guest actor when you complete this form.</p>
         <p>Bigleaper will contact your new company actor to request legal information.</p>
         <p>You will be able to check status validation of that company on Home or Agents module.</p>
+        <p>You must asign a provisional password for your Guest Actor.</p>
         <p>Important: estimated time for validation is from 48 to 72 hours.</p>
       </Container>
       <Container>
@@ -137,13 +138,10 @@ const AddActorModal = ({ actors, newActor, setNewActor }) => {
 
   return (
     <div>
-      <ButtonNew assignedFunction={handleOpen} />
-      <Modal
-        open={open}
-        onClose={handleClose}
-      >
-        {body}
-      </Modal>
+      {manageactors ?  <MenuItem value="" onClick={handleOpen} >Add other</MenuItem>
+      : <ButtonNew assignedFunction={handleOpen}/>
+      }
+      <Modal open={open} onClose={handleClose}>{body}</Modal>
     </div>
   );
 }

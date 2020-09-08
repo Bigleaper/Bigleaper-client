@@ -20,23 +20,11 @@ const useStyles = makeStyles({
   },
 });
 
-const allActors = ['import/export', 'carrier', 'forwarder', 'customsBroker'];
+const Actors = ({actors, newActor, setNewActor}) => {
 
-const Actors = () => {
   const classes = useStyles();
-  const [newActor, setNewActor] = useState({
-    companyName: '',
-    tradeName: '',
-    typeCompany: '',
-    rfc: '',
-    telephone: 0,
-    companyAgent: '',
-    email: '',
-    password: '',
-    address: '',
-  })
   //state with actors
-  const [actors, setActors] = useState([]);
+  const [getAllActors, setGetAllActors] = useState([]);
 
   const getActors = async () => {
     const token = localStorage.getItem('token')
@@ -46,7 +34,7 @@ const Actors = () => {
     try {
       const response = await clientAxios.get('/actors')
       console.log(response);
-      setActors(response.data)
+      setGetAllActors(response.data)
     } catch (error) {
       console.log(error)
     }
@@ -57,17 +45,15 @@ const Actors = () => {
   }, [])
 
 
-
-
   return (
     <Fragment>
       <Menu />
       <Header />
       <div>
-        <ViewTitle title={'Actors'} user={'Welcome usuario'} />
-        <AddActorModal actors={allActors} newActor={newActor} setNewActor={setNewActor} />
+        <ViewTitle title={'Actors'} user={'Welcome usuario'}/>
+        <AddActorModal actors={actors} newActor={newActor} setNewActor={setNewActor}/>
         <div className={classes.container}>
-          {allActors.map((actor, index) => (<ActorsTable key={index} actor={actor} />))}
+          {actors.map((actor, index) => (<ActorsTable key={index} actor={actor}/>))}
         </div>
       </div>
     </Fragment>

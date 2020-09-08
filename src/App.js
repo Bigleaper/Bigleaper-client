@@ -11,9 +11,20 @@ import HomeGuest from './views/HomeGuest';
 
 
 function App() {
-  const [user, setUser] = useState({ email: '', password: '' });
-
-
+  const allActors = ['import/export', 'carrier', 'forwarder', 'customsBroker'];
+  const [user, setUser] = useState({email:'', password:''});
+  const [newActor, setNewActor] = useState({
+    companyName: '',
+    tradeName: '',
+    typeCompany: '',
+    rfc: '',
+    telephone: 0,
+    companyAgent: '',
+    email: '',
+    password: '',
+    address: '',
+  })
+  
   return (
     <Fragment>
       <Router>
@@ -25,16 +36,16 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/actors">
-            <Actors />
+            <Actors actors={allActors} newActor={newActor} setNewActor={setNewActor} />
           </Route>
           <Route exact path="/exportfolios">
             <ExportFolios />
           </Route>
-          <Route exact path="/exportfolios/id">
+          <Route exact path="/exportfolios/:id">
             <ExportFolioId />
           </Route>
-          <Route exact path="/manageactors">
-            <ManageActors />
+          <Route exact path="/manageactors/:id">
+            <ManageActors actors={allActors} newActor={newActor} setNewActor={setNewActor}/>
           </Route>
           <Route exact path="/exportfoliocreat">
             <ExportFolioCreat />
