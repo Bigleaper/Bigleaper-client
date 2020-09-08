@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 const ExportFolios = () => {
   const classes = useStyles();
   const [folios, setFolios] = useState([])
-console.log(folios)
+  console.log(folios)
   const getFolios = async () => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -33,7 +33,7 @@ console.log(folios)
       console.log(response);
       setFolios(response.data)
     } catch (error) {
-      console.log(error)
+      console.log(error.response)
     }
   }
 
