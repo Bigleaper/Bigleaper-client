@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const EFIdManageActorsEdit = ({ manageActors }) => {
+const EFIdManageActorsEdit = ({ manageActors, idFolio }) => {
 
   const classes = useStyles();
   /*   const [value, setValue] = React.useState('Controlled'); */
@@ -35,9 +35,8 @@ const EFIdManageActorsEdit = ({ manageActors }) => {
       tokenAuth(token)
     }
     try {
-      // const response = await clientAxios.put(`/exportfolios/${id}/manageactors/`, newManageActors)
-      /* console.log(response);
-     */
+      const response = await clientAxios.put(`/exportfolios/${idFolio}/manageactors/`, newManageActors)
+      console.log(response);
     } catch (error) {
       console.log(error)
     }
@@ -152,7 +151,7 @@ const EFIdManageActorsEdit = ({ manageActors }) => {
 
         <div className='buttons'>
           <ButtonSaveGreen title={'EDIT'} functionToExecute={editManageActors} />
-          <ButtonSaveGray />
+          {/* <ButtonSaveGray /> */}
         </div>
 
       </div>

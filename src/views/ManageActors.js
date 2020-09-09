@@ -31,8 +31,29 @@ const ManageActors = ({ actors, newActor, setNewActor }) => {
   })
 
 
-  //const [manageActors, setManageActors] = useState([])
+  const [statusActorsFolio, setStatusActorsFolio] = useState(false)
 
+
+  const getActorsFolio = async () => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      tokenAuth(token)
+    }
+    try {
+      const response = await clientAxios.get(`/exportfolios/${id}/manageactors`)
+      console.log(response.data);
+      if (response.data.length !== 0) {
+        setStatusActorsFolio(true)
+      }
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
+
+  getActorsFolio()
+
+  //const [manageActors, setManageActors] = useState([])
+  const { currentOriginCarrier, currentForwarder, currentCustomsBroker, currentDestinyCarrier } = newManageActor
 
   const postManageActors = async () => {
     const token = localStorage.getItem('token')
@@ -41,9 +62,14 @@ const ManageActors = ({ actors, newActor, setNewActor }) => {
     }
     try {
       console.log(newManageActor);
-      const response = await clientAxios.post(`/exportfolios/${id}/manageactors/`, newManageActor)
-      console.log(response);
-      /*setManageActors(response.data) */
+      if (currentOriginCarrier !== '' || currentForwarder !== '' || currentCustomsBroker !== '' || currentDestinyCarrier !== '') {
+        console.log('holi');
+        const response = await clientAxios.post(`/exportfolios/${id}/manageactors`, newManageActor)
+        console.log(response);
+        /*setManageActors(response.data) */
+        return
+      }
+      console.log('state vacío')
     } catch (error) {
       console.log(error.response)
     }
@@ -59,8 +85,13 @@ const ManageActors = ({ actors, newActor, setNewActor }) => {
       <Header />
       <ViewTitle title={'Export Folios'} user={'Folio Creation / Manage Actors'} />
       <div className={classes.container}>
-        <EFIdManageActors actors={actors} newActor={newActor} setNewActor={setNewActor} setNewManageActor={setNewManageActor} newManageActor={newManageActor} postManageActors={postManageActors} />
-        <ExportFolioCreat idFolio={id} />
+        {statusActorsFolio ? (
+          <ExportFolioCreat idFolio={id} />
+        ) : (
+            <EFIdManageActors actors={actors} newActor={newActor} setNewActor={setNewActor} setNewManageActor={setNewManageActor} newManageActor={newManageActor} postManageActors={postManageActors} />
+          )}
+
+
       </div>
     </Fragment>
   );

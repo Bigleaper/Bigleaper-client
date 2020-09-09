@@ -109,9 +109,9 @@ const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNe
               onChange={handleChangeCF}
               label="forwarder"
             >
-              <MenuItem value={10}>Forwarder</MenuItem>
-              <MenuItem value={20}>Forwarder</MenuItem>
-              <MenuItem value={30}>Forwarder</MenuItem>
+              <MenuItem value={'jfnjfnvf'}>Forwarder</MenuItem>
+              <MenuItem value={'dscsc'}>Forwarder</MenuItem>
+              <MenuItem value={'dsccs'}>Forwarder</MenuItem>
               <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
             </Select>
           </FormControl>
@@ -128,9 +128,9 @@ const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNe
               onChange={e => setNewManageActor({ ...newManageActor, currentCustomsBroker: e.target.value })}
               label="originBroker"
             >
-              <MenuItem value={'10'}>Forwarder</MenuItem>
-              <MenuItem value={'20'}>Forwarder</MenuItem>
-              <MenuItem value={'30'}>Forwarder</MenuItem>
+              <MenuItem value={'cdscs'}>Forwarder</MenuItem>
+              <MenuItem value={'cdscsc'}>Forwarder</MenuItem>
+              <MenuItem value={'cdscscs'}>Forwarder</MenuItem>
               <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
             </Select>
           </FormControl>
@@ -144,9 +144,9 @@ const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNe
               onChange={handleChangeOB}
               label="originBroker"
             >
-              <MenuItem value={10}>Forwarder</MenuItem>
-              <MenuItem value={20}>Forwarder</MenuItem>
-              <MenuItem value={30}>Forwarder</MenuItem>
+              <MenuItem value={'cdscs'}>Forwarder</MenuItem>
+              <MenuItem value={'bfdvd'}>Forwarder</MenuItem>
+              <MenuItem value={'bfdv'}>Forwarder</MenuItem>
               <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
             </Select>
           </FormControl>
@@ -163,9 +163,9 @@ const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNe
               onChange={e => setNewManageActor({ ...newManageActor, currentDestinyCarrier: e.target.value })}
               label="destinityCarrier"
             >
-              <MenuItem value={'10'}>Destinity Carrier</MenuItem>
-              <MenuItem value={'20'}>Destinity Carrier</MenuItem>
-              <MenuItem value={'30'}>Destinity Carrier</MenuItem>
+              <MenuItem value={'gbgf'}>Destinity Carrier</MenuItem>
+              <MenuItem value={'nhnrf'}>Destinity Carrier</MenuItem>
+              <MenuItem value={'nhfbf'}>Destinity Carrier</MenuItem>
               <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
             </Select>
           </FormControl>
@@ -179,9 +179,9 @@ const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNe
               onChange={handleChangeDC}
               label="destinityCarrier"
             >
-              <MenuItem value={10}>Destinity Carrier</MenuItem>
-              <MenuItem value={20}>Destinity Carrier</MenuItem>
-              <MenuItem value={30}>Destinity Carrier</MenuItem>
+              <MenuItem value={'kocca'}>Destinity Carrier</MenuItem>
+              <MenuItem value={'kxosak'}>Destinity Carrier</MenuItem>
+              <MenuItem value={'osama'}>Destinity Carrier</MenuItem>
               <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
             </Select>
           </FormControl>

@@ -51,7 +51,7 @@ const ActorsTable = ({actor, getAllActors}) => {
             <tr><th>RFC: </th><td>{ac.rfc}</td></tr>
             <tr><th>Telephone: </th><td>{ac.telephone}</td></tr>
             <tr><th>Email: </th><td>{ac.email}</td></tr>
-            <tr><th>Address: </th><td>{ac.address}</td></tr>
+            <tr><th>Address: </th><td>{ac.adress}</td></tr>
             <tr><th>Status: </th><td>{ac.status}</td></tr>
           </table>
         </AccordionDetails>
