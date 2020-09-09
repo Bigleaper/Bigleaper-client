@@ -18,6 +18,26 @@ const useStyles = makeStyles({
     flexWrap: 'wrap',
   },
 });
+  //state with actors
+  const [getAllActors, setGetAllActors] = useState([]);
+  const getActors = async () => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      tokenAuth(token)
+    }
+    try {
+      const response = await clientAxios.get('/actors')
+      console.log(response);
+      setGetAllActors(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getActors()
+  }, [])
+
 const ManageActors = ({ actors, newActor, setNewActor }) => {
   const classes = useStyles();
   const { id } = useParams();
@@ -86,9 +106,9 @@ const ManageActors = ({ actors, newActor, setNewActor }) => {
       <ViewTitle title={'Export Folios'} user={'Folio Creation / Manage Actors'} />
       <div className={classes.container}>
         {statusActorsFolio ? (
-          <ExportFolioCreat idFolio={id} />
+          <ExportFolioCreat idFolio={id} actors={actors} newActor={newActor} setNewActor={setNewActor} getAllActors={getAllActors}/>
         ) : (
-            <EFIdManageActors actors={actors} newActor={newActor} setNewActor={setNewActor} setNewManageActor={setNewManageActor} newManageActor={newManageActor} postManageActors={postManageActors} />
+            <EFIdManageActors actors={actors} newActor={newActor} setNewActor={setNewActor} setNewManageActor={setNewManageActor} newManageActor={newManageActor} postManageActors={postManageActors} getAllActors={getAllActors}/>
           )}
 
 
