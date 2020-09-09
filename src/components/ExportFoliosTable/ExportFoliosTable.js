@@ -1,7 +1,6 @@
 import React from 'react';
 import { TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, makeStyles } from '@material-ui/core';
 import {Link} from 'react-router-dom';
-import data from '../../prueba';
 
 const useStyles = makeStyles({
     tableHeader: {
@@ -9,7 +8,8 @@ const useStyles = makeStyles({
     },
   });
 
-const ExportFoliosTable = () => {
+const ExportFoliosTable = ({folios}) => {
+  console.log(folios)
     const classes = useStyles();
     return ( 
         <TableContainer component={Paper}>
@@ -30,19 +30,19 @@ const ExportFoliosTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((folio, index) => (
-            <TableRow key={folio.FolioID}>
+          {folios.map((folio, index) => (
+            <TableRow key={folio._id}>
                 <TableCell component="th" scope="row">{index+1}</TableCell>
-                <TableCell align="center">{folio.CreateDate}</TableCell>
-                <TableCell align="center"><Link to={`/exportfolios/${folio.FolioID}`}>{folio.FolioID}</Link></TableCell>
-                <TableCell align="center">{folio.CreateBy}</TableCell>
-                <TableCell align="center">{folio.OriginCountry}</TableCell>
-                <TableCell align="center">{folio.Counterpart}</TableCell>
-                <TableCell align="center">{folio.DestinationCountry}</TableCell>
-                <TableCell align="center">{folio.Status}</TableCell>
-                <TableCell align="center">{folio.Currency}</TableCell>
-                <TableCell align="center">{folio.ProductAmount}</TableCell>
-                <TableCell align="center">{folio.Incoterm}</TableCell>
+                <TableCell align="center">{folio.createDate}</TableCell>
+                <TableCell align="center"><Link to={`/exportfolios/${folio._id}`}>{folio._id}</Link></TableCell>
+                <TableCell align="center">{folio.creator}</TableCell>
+                <TableCell align="center">{folio.originCountry}</TableCell>
+                <TableCell align="center">{folio.counterPart}</TableCell>
+                <TableCell align="center">{folio.destinationCountry}</TableCell>
+                <TableCell align="center">{folio.status}</TableCell>
+                <TableCell align="center">{folio.currency}</TableCell>
+                <TableCell align="center">{folio.productAmount}</TableCell>
+                <TableCell align="center">{folio.incoterm}</TableCell>
               </TableRow>
           ))}
         </TableBody>
