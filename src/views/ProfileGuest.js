@@ -7,6 +7,7 @@ import { makeStyles, Container } from '@material-ui/core';
 import ExportFoliosTable from '../components/ExportFoliosTable/ExportFoliosTable';
 import tokenAuth from '../config/tokenAuth';
 import clientAxios from '../config/axios'
+import ProfileGuestUser from '../components/ProfileGuestUser/ProfileGuestUser';
 
 
 const drawerWidth = 240;
@@ -48,7 +49,7 @@ const ProfileGuest = () => {
       <div>
         <ViewTitle title={'Profile'} user={'Welcome Guest'}/>
         <Container className={classes.container}>
-        AQUI VA LOS CAMPOS DE REGITRO DE GUEST
+        <ProfileGuestUser />
         </Container>
       </div>
     </Fragment>
