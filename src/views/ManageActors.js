@@ -45,7 +45,7 @@ const ManageActors = ({ actors, newActor, setNewActor }) => {
       console.log(response);
       /*setManageActors(response.data) */
     } catch (error) {
-      console.log(error)
+      console.log(error.response)
     }
   }
 
