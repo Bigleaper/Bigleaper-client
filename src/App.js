@@ -8,7 +8,8 @@ import ExportFolioId from './views/ExportFolioId';
 import ManageActors from './views/ManageActors';
 import ExportFolioCreat from './views/ExportFolioCreat';
 import HomeGuest from './views/HomeGuest';
-
+import ActorFoliosGuest from './views/ActorFoliosGuest';
+import ProfileGuest from './views/ProfileGuest';
 
 function App() {
   const allActors = ['import/export', 'carrier', 'forwarder', 'customsBroker'];
@@ -52,6 +53,12 @@ function App() {
           </Route>
           <Route exact path="/homeguest">
             <HomeGuest />
+          </Route>
+          <Route exact path="/actorfoliosguest">
+            <ActorFoliosGuest />
+          </Route>
+          <Route exact path="/profileguest">
+            <ProfileGuest />
           </Route>
         </Switch>
       </Router>

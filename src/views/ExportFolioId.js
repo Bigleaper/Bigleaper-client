@@ -29,18 +29,19 @@ const ExportFolioId = () => {
   const {id} = useParams();
   let folio = data.filter((folio) => folio.FolioID === id);
   return ( 
-        <Fragment>
-        <Menu />
-        <Header />
-        <div>
-            <ViewTitle title={'Export Folios'}/>
-                <Container className={classes.container}>
-                    <ExportSteps />
-                    <div className={classes.fbutton}><FloatingButton folioid={id}/></div>
-                    <FolioInformation folio={folio} />
-                </Container>
-        </div>
-    </Fragment>
+  <Fragment>
+    <Menu />
+    <Header />
+    <div>
+      <ViewTitle title={'Export Folios'}/>
+      <Container className={classes.container}>
+      <ExportSteps />
+      <div className={classes.fbutton}>
+        <FloatingButton folioid={id}/></div>
+        <FolioInformation folio={folio} />
+      </Container>
+    </div>
+  </Fragment>
      );
 }
  
