@@ -25,8 +25,27 @@ const EFIdManageActorsEdit = ({ manageActors }) => {
   /*   const handleChange = (event) => {
       setValue(event.target.value);
     }; */
-
+  //state to save data from selects
   const [newManageActors, setNewManageActors] = useState([])
+  //state to save companyAgents added by the user
+  const [guestsSaved, setGuestsSaved] = useState([])
+
+  //Function to get companyAgents
+  const getCompanyAgents = async () => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      tokenAuth(token)
+    }
+    try {
+      const response = await clientAxios.get('/users')
+      console.log(response);
+      setGuestsSaved(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
 
   //Function to update manageActors
   const editManageActors = async () => {
@@ -44,7 +63,9 @@ const EFIdManageActorsEdit = ({ manageActors }) => {
   }
 
   useEffect(() => {
-    editManageActors()
+    // editManageActors()
+    getCompanyAgents()
+
   }, [])
 
   return (
