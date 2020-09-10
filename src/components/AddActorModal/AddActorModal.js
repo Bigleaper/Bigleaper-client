@@ -32,7 +32,10 @@ const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     top: 5,
     right: 5,
-  }
+  },
+  importanText: {
+    color: 'red',
+  },
 }));
 
 const AddActorModal = ({ actors, newActor, setNewActor, manageactors }) => {
@@ -78,7 +81,7 @@ const AddActorModal = ({ actors, newActor, setNewActor, manageactors }) => {
         <p>Bigleaper will contact your new company actor to request legal information.</p>
         <p>You will be able to check status validation of that company on Home or Agents module.</p>
         <p>You must asign a provisional password for your Guest Actor.</p>
-        <p>Important: estimated time for validation is from 48 to 72 hours.</p>
+        <p className={classes.importanText}>Important: estimated time for validation is from 48 to 72 hours.</p>
       </Container>
       <Container>
         <form className={classes.root} noValidate autoComplete="off">
@@ -86,9 +89,10 @@ const AddActorModal = ({ actors, newActor, setNewActor, manageactors }) => {
             className={classes.textField}
             label="Company Name"
             variant="outlined"
+            size="small"
             onChange={e => setNewActor({ ...newActor, companyName: e.target.value })}
           />
-          <FormControl variant="outlined" className={classes.textField}>
+          <FormControl variant="outlined" className={classes.textField} size="small">
             <InputLabel id="actor-type">Actor Type</InputLabel>
             <Select
               labelId="actor-type"
@@ -105,36 +109,42 @@ const AddActorModal = ({ actors, newActor, setNewActor, manageactors }) => {
             className={classes.textField}
             label="Tradename"
             variant="outlined"
+            size="small"
             onChange={e => setNewActor({ ...newActor, tradeName: e.target.value })}
           />
           <TextField
             className={classes.textField}
             label="RFC"
             variant="outlined"
+            size="small"
             onChange={e => setNewActor({ ...newActor, rfc: e.target.value })}
           />
           <TextField
             className={classes.textField}
             label="Address"
             variant="outlined"
+            size="small"
             onChange={e => setNewActor({ ...newActor, adress: e.target.value })}
           />
           <TextField
             className={classes.textField}
             label="Company Agent"
             variant="outlined"
+            size="small"
             onChange={e => setNewActor({ ...newActor, companyAgent: e.target.value })}
           />
           <TextField
             className={classes.textField}
             label="Email"
             variant="outlined"
+            size="small"
             onChange={e => setNewActor({ ...newActor, email: e.target.value })}
           />
           <TextField
             className={classes.textField}
             label="Password"
             variant="outlined"
+            size="small"
             onChange={e => setNewActor({ ...newActor, password: e.target.value })}
           />
           <TextField
@@ -142,10 +152,11 @@ const AddActorModal = ({ actors, newActor, setNewActor, manageactors }) => {
             type="number"
             label="Telephone"
             variant="outlined"
+            size="small"
             onChange={e => setNewActor({ ...newActor, telephone: e.target.value })}
           />
           <ButtonSaveGreen
-            functionToExecute={addActor}
+            functionToExecute={addActor} title={'ADD'}
           />
         </form>
       </Container>
@@ -155,7 +166,7 @@ const AddActorModal = ({ actors, newActor, setNewActor, manageactors }) => {
   return (
     <div>
       {manageactors ? <MenuItem value="" onClick={handleOpen} >Add other</MenuItem>
-        : <ButtonNew assignedFunction={handleOpen} />
+        : <ButtonNew assignedFunction={handleOpen} className={classes.buttonSave} />
       }
       <Modal open={open} onClose={handleClose}>{body}</Modal>
     </div>

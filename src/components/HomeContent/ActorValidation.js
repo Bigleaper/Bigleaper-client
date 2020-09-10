@@ -14,6 +14,10 @@ const useStyles = makeStyles({
       borderRadius: '8px',
       padding: 30, 
     },
+    tableRow: {
+      border: 'solid',
+      borderColor: '#CAF199',
+    }
   });
 
 const createData = (Actor, SupportAgent, Status) => {
@@ -40,7 +44,7 @@ const ActorValidation = () => {
               </TableHead>
               <TableBody>
                 {rows.map((row) => (
-                  <TableRow key={row.Actor}>
+                  <TableRow key={row.Actor} className={classes.tableRow}>
                     <TableCell component="th" scope="row">
                       {row.Actor}
                     </TableCell>

@@ -3,10 +3,8 @@ import LogoH from '../LogoH/LogoH';
 import { makeStyles } from '@material-ui/core/styles';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import AssignmentReturnIcon from '@material-ui/icons/AssignmentReturn';
-import LocalShippingIcon from '@material-ui/icons/LocalShipping';
-import PeopleIcon from '@material-ui/icons/People';
-import BusinessIcon from '@material-ui/icons/Business';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 import {Link} from 'react-router-dom';
 
 const drawerWidth = 240;
@@ -37,19 +35,22 @@ export default function PermanentDrawerLeft() {
       <Drawer className={classes.drawer} variant="permanent" classes={{paper: classes.drawerPaper,}} anchor="left">
         <div className={classes.toolbar} />
         <List component="nav" aria-labelledby="nested-list-subheader" className={classes.root}>
-        <Link to='/home'><LogoH/></Link>
+        <Link to='/homeguest'><LogoH/></Link>
         <h3 align='center'>Guest</h3>
-        <Link to='/home'><ListItem button>
+
+        <Link to='/homeguest'><ListItem button>
             <ListItemIcon><DashboardIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Home" />
         </ListItem></Link>
-        <ListItem button>
-            <ListItemIcon><AssignmentReturnIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Import Folios" />
-        </ListItem>
-        <Link to='/exportfolios'><ListItem button>
-            <ListItemIcon><AssignmentReturnIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Export Folios" />
+
+        <Link to='/actorfoliosguest'><ListItem button>
+            <ListItemIcon><AssignmentIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Actor Folios" />
+        </ListItem></Link>
+
+        <Link to='/profileguest'><ListItem button>
+            <ListItemIcon><AccountCircleIcon className={classes.icon}/></ListItemIcon><ListItemText primary="Profile" />
         </ListItem></Link>
         
         </List>
-      </Drawer>
+      </Drawer>  
   );
 }
