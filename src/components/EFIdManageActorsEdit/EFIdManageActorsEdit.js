@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import './EFIdManageActorsEdit.css';
-import ButtonSaveGray from '../Bottons/ButtonSaveGray';
 import ButtonSaveGreen from '../Bottons/ButtonSaveGreen';
 import tokenAuth from '../../config/tokenAuth';
 import clientAxios from '../../config/axios';
@@ -244,36 +243,3 @@ const EFIdManageActorsEdit = ({ manageActors, idFolio, actors, newActor, setNewA
 }
 
 export default EFIdManageActorsEdit;
-
-
-
-
-// {actors.map((type,index) => 
-//   <div key={index}>
-//     <h5>{type}</h5>
-//     <FormControl variant="outlined" className={classes.formControl}>
-//     <InputLabel>Select {type}</InputLabel>
-//       <Select
-//         value=''
-//         onChange={e => setNewManageActors({ ...newManageActors, currentOriginCarrier: e.target.value })}
-//       >
-//       {getAllActors.filter(actor => actor.typeCompany === type).map(filteredActor => (
-//         <MenuItem key={filteredActor._id} value={filteredActor.tradeName}>{filteredActor.tradeName}</MenuItem>
-//       ))}
-//         <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
-//       </Select>
-//     </FormControl>
-
-//     <FormControl variant="outlined" className={classes.formControl}>
-//       <InputLabel>Select a {type} Agent</InputLabel>
-//       <Select
-//         // value={originCarrier}
-//         // onChange={handleChangeCOC}
-//         label="oringinCarrier"
-//       >
-//         <MenuItem value={'10'}>Origin Carrier</MenuItem>
-//         <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
-//       </Select>
-//     </FormControl>
-//   </div>
-// )}

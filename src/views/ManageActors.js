@@ -69,7 +69,7 @@ const ManageActors = ({ actors, newActor, setNewActor }) => {
     }
   }
 
-  getActorsFolio()
+  //getActorsFolio()
 
   //const [manageActors, setManageActors] = useState([])
   const { currentOriginCarrier, currentForwarder, currentCustomsBroker, currentDestinyCarrier } = newManageActor
@@ -85,7 +85,6 @@ const ManageActors = ({ actors, newActor, setNewActor }) => {
         console.log('holi');
         const response = await clientAxios.post(`/exportfolios/${id}/manageactors`, newManageActor)
         console.log(response);
-        /*setManageActors(response.data) */
         return
       }
       console.log('state vacío')
@@ -95,7 +94,8 @@ const ManageActors = ({ actors, newActor, setNewActor }) => {
   }
 
   useEffect(() => {
-    postManageActors()
+    getActorsFolio()
+    //postManageActors()
   }, [])
 
   return (
