@@ -44,8 +44,14 @@ const EFIdManageActorsEdit = ({ manageActors }) => {
       console.log(error)
     }
   }
-
-
+  console.log(guestsSaved)
+  {/* <p>import/export</p>
+<select>
+  {map...(
+    <option>getAllActors</option>
+  )}
+  <option selected> manageActors.currentOriginDestiny<option>
+</select> */}
 
   //Function to update manageActors
   const editManageActors = async () => {

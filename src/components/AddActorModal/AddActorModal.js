@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const AddActorModal = ({actors, newActor, setNewActor, manageactors}) => {
+const AddActorModal = ({ actors, newActor, setNewActor, manageactors }) => {
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
   const [open, setOpen] = useState(false);
@@ -48,14 +48,30 @@ const AddActorModal = ({actors, newActor, setNewActor, manageactors}) => {
       console.log(newActor);
       const response = await clientAxios.post('/actors', newActor)
       console.log(response);
+      cancelOrder()
     } catch (err) {
       console.log(err.response)
     }
   }
 
+
+  const cancelOrder = () => {
+    setNewActor({
+      companyName: '',
+      tradeName: '',
+      typeCompany: '',
+      rfc: '',
+      telephone: 0,
+      companyAgent: '',
+      email: '',
+      password: '',
+      address: '',
+    })
+  }
+
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <IconButton className={classes.closeBtn} onClick={handleClose}><CloseIcon/></IconButton>
+      <IconButton className={classes.closeBtn} onClick={handleClose}><CloseIcon /></IconButton>
       <Container>
         <h2>Validation Info</h2>
         <p>Your new actor will add to your Actors List as a guest actor when you complete this form.</p>
@@ -138,8 +154,8 @@ const AddActorModal = ({actors, newActor, setNewActor, manageactors}) => {
 
   return (
     <div>
-      {manageactors ?  <MenuItem value="" onClick={handleOpen} >Add other</MenuItem>
-      : <ButtonNew assignedFunction={handleOpen}/>
+      {manageactors ? <MenuItem value="" onClick={handleOpen} >Add other</MenuItem>
+        : <ButtonNew assignedFunction={handleOpen} />
       }
       <Modal open={open} onClose={handleClose}>{body}</Modal>
     </div>
