@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/LizethRivera04/Bigleaper-client/static/css/main.14af01b0.chunk.css",
-    "main.js": "/LizethRivera04/Bigleaper-client/static/js/main.cb310137.chunk.js",
-    "main.js.map": "/LizethRivera04/Bigleaper-client/static/js/main.cb310137.chunk.js.map",
-    "runtime-main.js": "/LizethRivera04/Bigleaper-client/static/js/runtime-main.3df9c339.js",
-    "runtime-main.js.map": "/LizethRivera04/Bigleaper-client/static/js/runtime-main.3df9c339.js.map",
-    "static/js/2.0f3f3977.chunk.js": "/LizethRivera04/Bigleaper-client/static/js/2.0f3f3977.chunk.js",
-    "static/js/2.0f3f3977.chunk.js.map": "/LizethRivera04/Bigleaper-client/static/js/2.0f3f3977.chunk.js.map",
-    "index.html": "/LizethRivera04/Bigleaper-client/index.html",
-    "precache-manifest.1399c3885221dde2b3742ba2037cdd8e.js": "/LizethRivera04/Bigleaper-client/precache-manifest.1399c3885221dde2b3742ba2037cdd8e.js",
-    "service-worker.js": "/LizethRivera04/Bigleaper-client/service-worker.js",
-    "static/css/main.14af01b0.chunk.css.map": "/LizethRivera04/Bigleaper-client/static/css/main.14af01b0.chunk.css.map",
-    "static/js/2.0f3f3977.chunk.js.LICENSE.txt": "/LizethRivera04/Bigleaper-client/static/js/2.0f3f3977.chunk.js.LICENSE.txt",
-    "static/media/Logo-H.png": "/LizethRivera04/Bigleaper-client/static/media/Logo-H.5d869d25.png",
-    "static/media/Logo_1.png": "/LizethRivera04/Bigleaper-client/static/media/Logo_1.c97ae807.png",
-    "static/media/bg-bigleaper.png": "/LizethRivera04/Bigleaper-client/static/media/bg-bigleaper.eca5df2c.png"
+    "main.css": "/Bigleaper-client/static/css/main.14af01b0.chunk.css",
+    "main.js": "/Bigleaper-client/static/js/main.9f6ee66b.chunk.js",
+    "main.js.map": "/Bigleaper-client/static/js/main.9f6ee66b.chunk.js.map",
+    "runtime-main.js": "/Bigleaper-client/static/js/runtime-main.ec1df53d.js",
+    "runtime-main.js.map": "/Bigleaper-client/static/js/runtime-main.ec1df53d.js.map",
+    "static/js/2.0f3f3977.chunk.js": "/Bigleaper-client/static/js/2.0f3f3977.chunk.js",
+    "static/js/2.0f3f3977.chunk.js.map": "/Bigleaper-client/static/js/2.0f3f3977.chunk.js.map",
+    "index.html": "/Bigleaper-client/index.html",
+    "precache-manifest.70525450d65c9e4e04e9b3e2a624a281.js": "/Bigleaper-client/precache-manifest.70525450d65c9e4e04e9b3e2a624a281.js",
+    "service-worker.js": "/Bigleaper-client/service-worker.js",
+    "static/css/main.14af01b0.chunk.css.map": "/Bigleaper-client/static/css/main.14af01b0.chunk.css.map",
+    "static/js/2.0f3f3977.chunk.js.LICENSE.txt": "/Bigleaper-client/static/js/2.0f3f3977.chunk.js.LICENSE.txt",
+    "static/media/Logo-H.png": "/Bigleaper-client/static/media/Logo-H.5d869d25.png",
+    "static/media/Logo_1.png": "/Bigleaper-client/static/media/Logo_1.c97ae807.png",
+    "static/media/bg-bigleaper.png": "/Bigleaper-client/static/media/bg-bigleaper.eca5df2c.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.3df9c339.js",
+    "static/js/runtime-main.ec1df53d.js",
     "static/js/2.0f3f3977.chunk.js",
     "static/css/main.14af01b0.chunk.css",
-    "static/js/main.cb310137.chunk.js"
+    "static/js/main.9f6ee66b.chunk.js"
   ]
 }
