@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -7,6 +7,8 @@ import Select from '@material-ui/core/Select';
 import ButtonSaveGreen from '../Bottons/ButtonSaveGreen';
 import './EFIdManageActors.css';
 import AddActorModal from '../AddActorModal/AddActorModal';
+import tokenAuth from '../../config/tokenAuth';
+import clientAxios from '../../config/axios';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -16,8 +18,30 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNewManageActor, postManageActors }) => {
+const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNewManageActor, postManageActors, getAllActors }) => {
 
+    //state to save companyAgents added by the user
+    const [guestsSaved, setGuestsSaved] = useState([])
+  
+    //Function to get companyAgents
+    const getCompanyAgents = async () => {
+      const token = localStorage.getItem('token')
+      if (token) {
+        tokenAuth(token)
+      }
+      try {
+        const response = await clientAxios.get('/users')
+        console.log(response);
+        setGuestsSaved(response.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    useEffect(() => {
+      // editManageActors()
+      getCompanyAgents()
+  
+    }, [])
   const classes = useStyles();
   const [originCarrier, setOriginCarrier] = React.useState('');
 
@@ -48,7 +72,7 @@ const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNe
           <h3>Manage Actors</h3>
         </div>
         <div className='originCarrier'>
-          <h5>Current Origin Carries:</h5>
+          <h5>Current Origin Carrier:</h5>
           <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel id="demo-simple-select-outlined-label">Select origin carrier</InputLabel>
             <Select
@@ -58,25 +82,25 @@ const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNe
               onChange={e => setNewManageActor({ ...newManageActor, currentOriginCarrier: e.target.value })}
               label="oringinCarrier"
             >
-              <MenuItem value={'10'}>Origin Carrier</MenuItem>
-              <MenuItem value={'20'}>Origin Carrier</MenuItem>
-              <MenuItem value={'30'}>Origin Carrier</MenuItem>
+            {getAllActors.filter(actor => actor.typeCompany === 'import/export').map(filteredActor => (
+              <MenuItem key={filteredActor._id} value={filteredActor.companyName}>{filteredActor.companyName}</MenuItem>
+            ))}
               <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
             </Select>
           </FormControl>
 
           <FormControl variant="outlined" className={classes.formControl}>
-            <InputLabel id="demo-simple-select-outlined-label">Select a carrier agent</InputLabel>
+          <InputLabel id="demo-simple-select-outlined-label">Select a origin carrier</InputLabel>
             <Select
               labelId="demo-simple-select-outlined-label"
               id="demo-simple-select-outlined"
-              value={originCarrier}
-              onChange={handleChangeCOC}
+              value={newManageActor.originCarrierAgent}
+              onChange={e=>setNewManageActor({ ...newManageActor, originCarrierAgent: e.target.value})}
               label="oringinCarrier"
             >
-              <MenuItem value={'10'}>Origin Carrier</MenuItem>
-              <MenuItem value={'20'}>Origin Carrier</MenuItem>
-              <MenuItem value={'30'}>Origin Carrier</MenuItem>
+            {guestsSaved.filter(x=> (x.company === newManageActor.currentOriginCarrier)).map(x=> 
+              <MenuItem value={x.name}>{x.name}</MenuItem>
+            )}
               <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
             </Select>
           </FormControl>
@@ -93,9 +117,9 @@ const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNe
               onChange={e => setNewManageActor({ ...newManageActor, currentForwarder: e.target.value })}
               label="forwarder"
             >
-              <MenuItem value={'10'}>Forwarder</MenuItem>
-              <MenuItem value={'20'}>Forwarder</MenuItem>
-              <MenuItem value={'30'}>Forwarder</MenuItem>
+            {getAllActors.filter(actor => actor.typeCompany === 'forwarder').map(filteredActor => (
+              <MenuItem key={filteredActor._id} value={filteredActor.companyName}>{filteredActor.companyName}</MenuItem>
+            ))}
               <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
             </Select>
           </FormControl>
@@ -105,13 +129,13 @@ const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNe
             <Select
               labelId="demo-simple-select-outlined-label"
               id="demo-simple-select-outlined"
-              value={forwarder}
-              onChange={handleChangeCF}
-              label="forwarder"
+              value={newManageActor.forwarderAgent}
+              onChange={e=>setNewManageActor({ ...newManageActor, forwarderAgent: e.target.value})}
+              label="oringinCarrier"
             >
-              <MenuItem value={'jfnjfnvf'}>Forwarder</MenuItem>
-              <MenuItem value={'dscsc'}>Forwarder</MenuItem>
-              <MenuItem value={'dsccs'}>Forwarder</MenuItem>
+            {guestsSaved.filter(x=> (x.company === newManageActor.currentForwarder)).map(x=> 
+              <MenuItem value={x.name}>{x.name}</MenuItem>
+            )}
               <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
             </Select>
           </FormControl>
@@ -128,9 +152,9 @@ const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNe
               onChange={e => setNewManageActor({ ...newManageActor, currentCustomsBroker: e.target.value })}
               label="originBroker"
             >
-              <MenuItem value={'cdscs'}>Forwarder</MenuItem>
-              <MenuItem value={'cdscsc'}>Forwarder</MenuItem>
-              <MenuItem value={'cdscscs'}>Forwarder</MenuItem>
+            {getAllActors.filter(actor => actor.typeCompany === 'customsBroker').map(filteredActor => (
+              <MenuItem key={filteredActor._id} value={filteredActor.companyName}>{filteredActor.companyName}</MenuItem>
+            ))}
               <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
             </Select>
           </FormControl>
@@ -140,13 +164,13 @@ const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNe
             <Select
               labelId="demo-simple-select-outlined-label"
               id="demo-simple-select-outlined"
-              value={originBroker}
-              onChange={handleChangeOB}
-              label="originBroker"
+              value={newManageActor.customBrokerAgent}
+              onChange={e=>setNewManageActor({ ...newManageActor, customBrokerAgent: e.target.value})}
+              label="oringinCarrier"
             >
-              <MenuItem value={'cdscs'}>Forwarder</MenuItem>
-              <MenuItem value={'bfdvd'}>Forwarder</MenuItem>
-              <MenuItem value={'bfdv'}>Forwarder</MenuItem>
+            {guestsSaved.filter(x=> (x.company === newManageActor.currentCustomsBroker)).map(x=> 
+              <MenuItem value={x.name}>{x.name}</MenuItem>
+            )}
               <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
             </Select>
           </FormControl>
@@ -163,25 +187,25 @@ const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNe
               onChange={e => setNewManageActor({ ...newManageActor, currentDestinyCarrier: e.target.value })}
               label="destinityCarrier"
             >
-              <MenuItem value={'gbgf'}>Destinity Carrier</MenuItem>
-              <MenuItem value={'nhnrf'}>Destinity Carrier</MenuItem>
-              <MenuItem value={'nhfbf'}>Destinity Carrier</MenuItem>
+            {getAllActors.filter(actor => actor.typeCompany === 'carrier').map(filteredActor => (
+              <MenuItem key={filteredActor._id} value={filteredActor.companyName}>{filteredActor.companyName}</MenuItem>
+            ))}
               <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
             </Select>
           </FormControl>
 
           <FormControl variant="outlined" className={classes.formControl}>
-            <InputLabel id="demo-simple-select-outlined-label">Select a carrier agent</InputLabel>
+            <InputLabel id="demo-simple-select-outlined-label">Select a Destiny Carrier Agent</InputLabel>
             <Select
               labelId="demo-simple-select-outlined-label"
               id="demo-simple-select-outlined"
-              value={destinityCarrier}
-              onChange={handleChangeDC}
-              label="destinityCarrier"
+              value={newManageActor.destinyCarrierAgent}
+              onChange={e=>setNewManageActor({ ...newManageActor, destinyCarrierAgent: e.target.value})}
+              label="oringinCarrier"
             >
-              <MenuItem value={'kocca'}>Destinity Carrier</MenuItem>
-              <MenuItem value={'kxosak'}>Destinity Carrier</MenuItem>
-              <MenuItem value={'osama'}>Destinity Carrier</MenuItem>
+            {guestsSaved.filter(x=> (x.company === newManageActor.currentDestinyCarrier)).map(x=> 
+              <MenuItem value={x.name}>{x.name}</MenuItem>
+            )}
               <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
             </Select>
           </FormControl>
