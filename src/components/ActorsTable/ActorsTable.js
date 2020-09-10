@@ -1,7 +1,6 @@
 import React from 'react';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { makeStyles, Container, ListItemText, Accordion, AccordionSummary, AccordionDetails, Typography, Avatar } from '@material-ui/core';
-import { lightGreen } from '@material-ui/core/colors';
+import { makeStyles, Container, ListItemText, Table, TableRow, TableCell, TableBody, Accordion, AccordionSummary, AccordionDetails, Typography, Avatar } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,12 +16,12 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
   accordion: {
-    border: 'solid',
     borderRadius: 5,
-    borderColor: '#8CC841',
+    background: '#CAF199',
+    marginBottom: 12,
   },
   avatar: {
-    backgroundColor: lightGreen[500],
+    backgroundColor: '#26364B',
     margin: 7,
   },
 }));
@@ -51,7 +50,7 @@ const ActorsTable = ({actor, getAllActors}) => {
             <tr><th>RFC: </th><td>{ac.rfc}</td></tr>
             <tr><th>Telephone: </th><td>{ac.telephone}</td></tr>
             <tr><th>Email: </th><td>{ac.email}</td></tr>
-            <tr><th>Address: </th><td>{ac.address}</td></tr>
+            <tr><th>Address: </th><td>{ac.adress}</td></tr>
             <tr><th>Status: </th><td>{ac.status}</td></tr>
           </table>
         </AccordionDetails>

@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     flexWrap: 'wrap',
   },
 });
-const ExportFolioCreat = ({ idFolio }) => {
+const ExportFolioCreat = ({ idFolio, actors, newActor, setNewActor, getAllActors }) => {
   const classes = useStyles();
 
   const [manageActors, setManageActors] = useState([])
@@ -44,11 +44,8 @@ const ExportFolioCreat = ({ idFolio }) => {
 
   return (
     <Fragment>
-      <Menu />
-      <Header />
-      <ViewTitle title={'Export Folios'} user={'Folio Creation / Manage Actors'} />
       <div className={classes.container}>
-        <EFIdManageActorsEdit manageActors={manageActors} />
+        <EFIdManageActorsEdit manageActors={manageActors} idFolio={idFolio} actors={actors} newActor={newActor} setNewActor={setNewActor} getAllActors={getAllActors}/>
       </div>
     </Fragment>
   );

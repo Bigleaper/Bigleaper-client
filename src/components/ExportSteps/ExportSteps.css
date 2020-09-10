@@ -1,7 +1,7 @@
-.MuiStepIcon-root.MuiStepIcon-active {
-  color: green;
+#root > div:nth-child(3) > div.MuiContainer-root.makeStyles-container-1.MuiContainer-maxWidthLg > div.MuiContainer-root.makeStyles-root-16.MuiContainer-maxWidthLg > div.MuiPaper-root.MuiStepper-root.MuiStepper-horizontal.MuiStepper-alternativeLabel.MuiPaper-elevation0 > div > span > span.MuiStepLabel-iconContainer.MuiStepLabel-alternativeLabel > svg {
+  color: rgb(201, 201, 201);
 }
 
-.MuiStepIcon-root.MuiStepIcon-completed {
-  color: pink;
+#root > div:nth-child(3) > div.MuiContainer-root.makeStyles-container-1.MuiContainer-maxWidthLg > div.MuiContainer-root.makeStyles-root-16.MuiContainer-maxWidthLg > div.MuiPaper-root.MuiStepper-root.MuiStepper-horizontal.MuiStepper-alternativeLabel.MuiPaper-elevation0 > div.MuiStep-root.MuiStep-horizontal.MuiStep-alternativeLabel.MuiStep-completed > span > span.MuiStepLabel-iconContainer.MuiStepLabel-alternativeLabel > svg > path {
+  color: #8CC841;
 }

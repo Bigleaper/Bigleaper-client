@@ -1,0 +1,39 @@
+body {
+  background-color: #C4C7CB;
+}
+
+.containerGral {
+  display: flex;
+  border: magenta;
+  border-radius: 10px;
+}
+
+.containerGuest {
+  flex-direction: column;
+  background-color: #ffff;
+  justify-content: center;
+  align-items: center;
+  margin: 0 25px 50px 0;
+  width: 400px;
+  height: 425px;
+}
+
+.container h5 {
+  margin: 10px 0px 5px 10px; 
+}
+
+.container .subtitle {
+  display: flex;
+  align-self: flex-start;
+  margin-left: 20px;
+}
+
+.fields {
+  display: flex;
+}
+
+.buttons {
+  display: flex;
+  margin: 10px auto;
+
+}

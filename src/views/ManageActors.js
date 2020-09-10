@@ -18,6 +18,7 @@ const useStyles = makeStyles({
     flexWrap: 'wrap',
   },
 });
+
 const ManageActors = ({ actors, newActor, setNewActor }) => {
   const classes = useStyles();
   const { id } = useParams();
@@ -30,9 +31,48 @@ const ManageActors = ({ actors, newActor, setNewActor }) => {
     currentDestinyCarrier: ''
   })
 
+  const [statusActorsFolio, setStatusActorsFolio] = useState(false)
+
+    //state with actors
+    const [getAllActors, setGetAllActors] = useState([]);
+    const getActors = async () => {
+      const token = localStorage.getItem('token')
+      if (token) {
+        tokenAuth(token)
+      }
+      try {
+        const response = await clientAxios.get('/actors')
+        console.log(response);
+        setGetAllActors(response.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  
+    useEffect(() => {
+      getActors()
+    }, [])
+
+  const getActorsFolio = async () => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      tokenAuth(token)
+    }
+    try {
+      const response = await clientAxios.get(`/exportfolios/${id}/manageactors`)
+      console.log(response.data);
+      if (response.data.length !== 0) {
+        setStatusActorsFolio(true)
+      }
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
+
+  //getActorsFolio()
 
   //const [manageActors, setManageActors] = useState([])
-
+  const { currentOriginCarrier, currentForwarder, currentCustomsBroker, currentDestinyCarrier } = newManageActor
 
   const postManageActors = async () => {
     const token = localStorage.getItem('token')
@@ -41,16 +81,21 @@ const ManageActors = ({ actors, newActor, setNewActor }) => {
     }
     try {
       console.log(newManageActor);
-      const response = await clientAxios.post(`/exportfolios/${id}/manageactors/`, newManageActor)
-      console.log(response);
-      /*setManageActors(response.data) */
+      if (currentOriginCarrier !== '' || currentForwarder !== '' || currentCustomsBroker !== '' || currentDestinyCarrier !== '') {
+        console.log('holi');
+        const response = await clientAxios.post(`/exportfolios/${id}/manageactors`, newManageActor)
+        console.log(response);
+        return
+      }
+      console.log('state vacío')
     } catch (error) {
-      console.log(error)
+      console.log(error.response)
     }
   }
 
   useEffect(() => {
-    postManageActors()
+    getActorsFolio()
+    //postManageActors()
   }, [])
 
   return (
@@ -59,8 +104,13 @@ const ManageActors = ({ actors, newActor, setNewActor }) => {
       <Header />
       <ViewTitle title={'Export Folios'} user={'Folio Creation / Manage Actors'} />
       <div className={classes.container}>
-        <EFIdManageActors actors={actors} newActor={newActor} setNewActor={setNewActor} setNewManageActor={setNewManageActor} newManageActor={newManageActor} postManageActors={postManageActors} />
-        <ExportFolioCreat idFolio={id} />
+        {statusActorsFolio ? 
+        (
+          <ExportFolioCreat idFolio={id} actors={actors} newActor={newActor} setNewActor={setNewActor} getAllActors={getAllActors}/>
+        ) : 
+        (
+          <EFIdManageActors actors={actors} newActor={newActor} setNewActor={setNewActor} setNewManageActor={setNewManageActor} newManageActor={newManageActor} postManageActors={postManageActors} getAllActors={getAllActors} idFolio={id}/>
+        )}
       </div>
     </Fragment>
   );

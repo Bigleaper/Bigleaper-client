@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Home from './views/Home';
 import Actors from './views/Actors';
 import SignIn from './views/SignIn';
@@ -8,11 +8,13 @@ import ExportFolioId from './views/ExportFolioId';
 import ManageActors from './views/ManageActors';
 import ExportFolioCreat from './views/ExportFolioCreat';
 import HomeGuest from './views/HomeGuest';
-
+import ActorFoliosGuest from './views/ActorFoliosGuest';
+import ProfileGuest from './views/ProfileGuest';
 
 function App() {
   const allActors = ['import/export', 'carrier', 'forwarder', 'customsBroker'];
-  const [user, setUser] = useState({email:'', password:''});
+  const [user, setUser] = useState({ email: '', password: '' });
+  const [token, setToken] = useState(false)
   const [newActor, setNewActor] = useState({
     companyName: '',
     tradeName: '',
@@ -24,13 +26,15 @@ function App() {
     password: '',
     address: '',
   })
-  
+
+
+
   return (
     <Fragment>
       <Router>
         <Switch>
           <Route exact path="/">
-            <SignIn user={user} setUser={setUser} />
+            {token ? <Redirect to="/home" /> : <SignIn user={user} setUser={setUser} setToken={setToken} />}
           </Route>
           <Route exact path="/home">
             <Home />
@@ -45,13 +49,19 @@ function App() {
             <ExportFolioId />
           </Route>
           <Route exact path="/manageactors/:id">
-            <ManageActors actors={allActors} newActor={newActor} setNewActor={setNewActor}/>
+            <ManageActors actors={allActors} newActor={newActor} setNewActor={setNewActor} />
           </Route>
           <Route exact path="/exportfoliocreat">
             <ExportFolioCreat />
           </Route>
           <Route exact path="/homeguest">
             <HomeGuest />
+          </Route>
+          <Route exact path="/actorfoliosguest">
+            <ActorFoliosGuest />
+          </Route>
+          <Route exact path="/profileguest">
+            <ProfileGuest />
           </Route>
         </Switch>
       </Router>

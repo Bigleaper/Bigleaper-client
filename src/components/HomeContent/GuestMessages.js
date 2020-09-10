@@ -1,9 +1,10 @@
 import React from 'react';
 import { makeStyles, Container, Typography } from '@material-ui/core';
+import HomeMessages from './HomeMessages';
 
 const useStyles = makeStyles({
     container: {
-      width: '35%', 
+      width: '38%', 
       background: 'white', 
       borderRadius: '8px',
       padding: '10px',  
@@ -16,6 +17,8 @@ const GuestMessages = () => {
     return ( 
         <Container className={classes.container}>
             <Typography variant='h6'>Messages</Typography>
+            <HomeMessages />
+            <HomeMessages />
         </Container>
      );
 }
