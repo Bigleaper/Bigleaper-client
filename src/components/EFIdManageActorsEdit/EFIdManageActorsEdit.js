@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+import { makeStyles, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import './EFIdManageActorsEdit.css';
 import ButtonSaveGray from '../Bottons/ButtonSaveGray';
 import ButtonSaveGreen from '../Bottons/ButtonSaveGreen';
 import tokenAuth from '../../config/tokenAuth';
 import clientAxios from '../../config/axios';
-import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import AddActorModal from '../AddActorModal/AddActorModal';
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,20 +20,31 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const EFIdManageActorsEdit = ({ manageActors, idFolio, actors, newActor, setNewActor }) => {
+const EFIdManageActorsEdit = ({ manageActors, idFolio, actors, newActor, setNewActor, getAllActors }) => {
+  // manageActors.map(x=> console.log(Object.keys(x)))
   const classes = useStyles();
-  /*   const [value, setValue] = React.useState('Controlled'); */
-
-  /*   const handleChange = (event) => {
-      setValue(event.target.value);
-    }; */
-    const actrs = actors.map(a=> manageActors.filter(ac=> ac.typeCompany === a))
-    console.log(actrs)
-  // const filtered = manageActors.filter(actor => actor.typeCompany === actors)
-  // console.log(actors)
+  //state to save data from selects
   const [newManageActors, setNewManageActors] = useState([])
+  //state to save companyAgents added by the user
+  const [guestsSaved, setGuestsSaved] = useState([])
+  
+  //Function to get companyAgents
+  const getCompanyAgents = async () => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      tokenAuth(token)
+    }
+    try {
+      const response = await clientAxios.get('/users')
+      console.log(response);
+      setGuestsSaved(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   //Function to update manageActors
   const editManageActors = async () => {
+    console.log('ok')
     const token = localStorage.getItem('token')
     if (token) {
       tokenAuth(token)
@@ -50,8 +58,15 @@ const EFIdManageActorsEdit = ({ manageActors, idFolio, actors, newActor, setNewA
   }
 
   useEffect(() => {
-    editManageActors()
+    // editManageActors()
+    getCompanyAgents()
+
   }, [])
+
+  let currentForwarder = manageActors.map(x=> x.currentForwarder)
+  let currentOriginCarrier = manageActors.map(x=> x.currentOriginCarrier)
+  let currentCustomsBroker = manageActors.map(x=> x.currentCustomsBroker)
+  let currentDestinyCarrier = manageActors.map(x=> x.currentDestinyCarrier)
 
   return (
     <div className='containerGral'>
@@ -59,150 +74,206 @@ const EFIdManageActorsEdit = ({ manageActors, idFolio, actors, newActor, setNewA
         <div className='subtitle'>
           <h3>Export Folio / Manage Actors</h3>
         </div>
-          {actors.map(type => 
-            <div className='originCarrier'>
-              <h5>{type}</h5>
-              <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel id="demo-simple-select-outlined-label">Select origin carrier</InputLabel>
-                <Select
-                  labelId="demo-simple-select-outlined-label"
-                  id="demo-simple-select-outlined"
-                  // value={newManageActor.currentOriginCarrier}
-                  // onChange={e => setNewManageActor({ ...newManageActor, currentOriginCarrier: e.target.value })}
-                  label="oringinCarrier"
-                >
-                  <MenuItem value={'10'}>Origin Carrier</MenuItem>
-                  <MenuItem value={'20'}>Origin Carrier</MenuItem>
-                  <MenuItem value={'30'}>Origin Carrier</MenuItem>
-                  <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
-                </Select>
-              </FormControl>
+        <div className='originCarrier'>
+          <h5>Current Origin Carrier:</h5>
+          <FormControl variant="outlined" className={classes.formControl}>
+            <InputLabel id="demo-simple-select-outlined-label">{currentOriginCarrier}</InputLabel>
+            <Select
+              labelId="demo-simple-select-outlined-label"
+              id="demo-simple-select-outlined"
+              value={newManageActors.currentOriginCarrier}
+              onChange={e=>setNewManageActors({ ...newManageActors, currentOriginCarrier: e.target.value})}
+              label="oringinCarrier"
+            >
+            {getAllActors.filter(actor => actor.typeCompany === 'import/export').map(filteredActor => (
+              <MenuItem key={filteredActor._id} value={filteredActor.companyName}>{filteredActor.companyName}</MenuItem>
+            ))}
+              <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
+            </Select>
+          </FormControl>
 
-              <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel id="demo-simple-select-outlined-label">Select a carrier agent</InputLabel>
-                <Select
-                  labelId="demo-simple-select-outlined-label"
-                  id="demo-simple-select-outlined"
-                  // value={originCarrier}
-                  // onChange={handleChangeCOC}
-                  label="oringinCarrier"
-                >
-                  <MenuItem value={'10'}>Origin Carrier</MenuItem>
-                  <MenuItem value={'20'}>Origin Carrier</MenuItem>
-                  <MenuItem value={'30'}>Origin Carrier</MenuItem>
-                  <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
-                </Select>
-              </FormControl>
-            </div>
-          )}
-
-
-        {/* <div className='originCarrier'>
-          <h5>Current Origin Carries:</h5>
-          <form className={classes.root} noValidate autoComplete="off">
-            <div className='fields'>
-              <div className='field_1'>
-                <TextField
-                  id="outlined-textarea"
-                  label="Origin Carrier"
-                  placeholder="Placeholder"
-                  variant="outlined"
-                />
-              </div>
-              <div className='fiel_2'>
-                <TextField
-                  id="outlined-textarea"
-                  label="Agent name"
-                  placeholder="Placeholder"
-                  variant="outlined"
-                />
-              </div>
-            </div>
-          </form>
+          <FormControl variant="outlined" className={classes.formControl}>
+          {guestsSaved.filter(x=> (x.company === currentOriginCarrier[0])).map(x=> 
+            <InputLabel id="demo-simple-select-outlined-label">{x.name}</InputLabel>
+            )}
+            <Select
+              labelId="demo-simple-select-outlined-label"
+              id="demo-simple-select-outlined"
+              value={newManageActors.originCarrierAgent}
+              onChange={e=>setNewManageActors({ ...newManageActors, originCarrierAgent: e.target.value})}
+              label="oringinCarrier"
+            >
+            {guestsSaved.filter(x=> (x.company === currentOriginCarrier[0])).map(x=> 
+              <MenuItem value={x.name}>{x.name}</MenuItem>
+            )}
+            {guestsSaved.filter(x=> (x.company === newManageActors.currentOriginCarrier)).map(x=> 
+              <MenuItem value={x.name}>{x.name}</MenuItem>
+            )}
+              <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
+            </Select>
+          </FormControl>
         </div>
 
-        <div className='forwarder'>
+        <div className='currentForwarder'>
           <h5>Current Forwarder:</h5>
-          <form className={classes.root} noValidate autoComplete="off">
-            <div className='fields'>
-              <div className='field_1'>
-                <TextField
-                  id="outlined-textarea"
-                  label="Forwarder"
-                  placeholder="Placeholder"
-                  variant="outlined"
-                />
-              </div>
-              <div className='fiel_2'>
-                <TextField
-                  id="outlined-textarea"
-                  label="Agent name"
-                  placeholder="Placeholder"
-                  variant="outlined"
-                />
-              </div>
-            </div>
-          </form>
+          <FormControl variant="outlined" className={classes.formControl}>
+            <InputLabel id="demo-simple-select-outlined-label">{currentForwarder}</InputLabel>
+            <Select
+              labelId="demo-simple-select-outlined-label"
+              id="demo-simple-select-outlined"
+              value={newManageActors.currentForwarder}
+              onChange={e=>setNewManageActors({ ...newManageActors, currentForwarder: e.target.value})}
+              label="forwarder"
+            >
+            {getAllActors.filter(actor => actor.typeCompany === 'forwarder').map(filteredActor => (
+              <MenuItem key={filteredActor._id} value={filteredActor.companyName}>{filteredActor.companyName}</MenuItem>
+            ))}
+              <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
+            </Select>
+          </FormControl>
+
+          <FormControl variant="outlined" className={classes.formControl}>
+          {guestsSaved.filter(x=> (x.company === currentForwarder[0])).map(x=> 
+            <InputLabel id="demo-simple-select-outlined-label">{x.name}</InputLabel>
+            )}
+            <Select
+              labelId="demo-simple-select-outlined-label"
+              id="demo-simple-select-outlined"
+              value={newManageActors.forwarderAgent}
+              onChange={e=>setNewManageActors({ ...newManageActors, forwarderAgent: e.target.value})}
+              label="forwarder"
+            >
+            {guestsSaved.filter(x=> (x.company === currentForwarder[0])).map(x=> 
+              <MenuItem value={x.name}>{x.name}</MenuItem>
+            )}
+            {guestsSaved.filter(x=> (x.company === newManageActors.currentForwarder)).map(x=> 
+              <MenuItem value={x.name}>{x.name}</MenuItem>
+            )}
+              <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
+            </Select>
+          </FormControl>
         </div>
 
-        <div className='customBroker'>
+        <div className='customsBroker'>
           <h5>Current Origin Customs Broker:</h5>
-          <form className={classes.root} noValidate autoComplete="off">
-            <div className='fields'>
-              <div className='field_1'>
-                <TextField
-                  id="outlined-textarea"
-                  label="Customs broker"
-                  placeholder="Placeholder"
-                  variant="outlined"
-                />
-              </div>
-              <div className='fiel_2'>
-                <TextField
-                  id="outlined-textarea"
-                  label="Agent name"
-                  placeholder="Placeholder"
-                  variant="outlined"
-                />
-              </div>
-            </div>
-          </form>
+          <FormControl variant="outlined" className={classes.formControl}>
+            <InputLabel id="demo-simple-select-outlined-label">{currentCustomsBroker}</InputLabel>
+            <Select
+              labelId="demo-simple-select-outlined-label"
+              id="demo-simple-select-outlined"
+              value={newManageActors.currentCustomsBroker}
+              onChange={e=>setNewManageActors({ ...newManageActors, currentCustomsBroker: e.target.value})}
+              label="originBroker"
+            >
+            {getAllActors.filter(actor => actor.typeCompany === 'customsBroker').map(filteredActor => (
+              <MenuItem key={filteredActor._id} value={filteredActor.companyName}>{filteredActor.companyName}</MenuItem>
+            ))}
+              <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
+            </Select>
+          </FormControl>
+
+          <FormControl variant="outlined" className={classes.formControl}>
+          {guestsSaved.filter(x=> (x.company === currentCustomsBroker[0])).map(x=> 
+            <InputLabel id="demo-simple-select-outlined-label">{x.name}</InputLabel>
+            )}
+            <Select
+              labelId="demo-simple-select-outlined-label"
+              id="demo-simple-select-outlined"
+              value={newManageActors.customBrokerAgent}
+              onChange={e=>setNewManageActors({ ...newManageActors, customBrokerAgent: e.target.value})}
+              label="originBroker"
+            >
+            {guestsSaved.filter(x=> (x.company === currentCustomsBroker[0])).map(x=> 
+              <MenuItem value={x.name}>{x.name}</MenuItem>
+            )}
+            {guestsSaved.filter(x=> (x.company === newManageActors.currentCustomsBroker)).map(x=> 
+              <MenuItem value={x.name}>{x.name}</MenuItem>
+            )}
+              <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
+            </Select>
+          </FormControl>
         </div>
 
-        <div className='destonityCarrier'>
-          <h5>Current Origin Customs Broker:</h5>
-          <form className={classes.root} noValidate autoComplete="off">
-            <div className='fields'>
-              <div className='field_1'>
-                <TextField
-                  id="outlined-textarea"
-                  label="Current Destinity Carrier"
-                  placeholder="Placeholder"
-                  variant="outlined"
-                />
-              </div>
-              <div className='fiel_2'>
-                <TextField
-                  id="outlined-textarea"
-                  label="Agent name"
-                  placeholder="Placeholder"
-                  variant="outlined"
-                />
-              </div>
-            </div>
-          </form>
-        </div> */}
+        <div className='destinityCarrier'>
+          <h5>Current Destinity Carrier:</h5>
+          <FormControl variant="outlined" className={classes.formControl}>
+            <InputLabel id="demo-simple-select-outlined-label">{currentDestinyCarrier}</InputLabel>
+            <Select
+              labelId="demo-simple-select-outlined-label"
+              id="demo-simple-select-outlined"
+              value={newManageActors.currentDestinyCarrier}
+              onChange={e => setNewManageActors({ ...newManageActors, currentDestinyCarrier: e.target.value })}
+              label="destinityCarrier"
+            >
+            {getAllActors.filter(actor => actor.typeCompany === 'carrier').map(filteredActor => (
+              <MenuItem key={filteredActor._id} value={filteredActor.companyName}>{filteredActor.companyName}</MenuItem>
+            ))}
+              <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
+            </Select>
+          </FormControl>
+
+          <FormControl variant="outlined" className={classes.formControl}>
+          {guestsSaved.filter(x=> (x.company === currentDestinyCarrier[0])).map(x=> 
+            <InputLabel id="demo-simple-select-outlined-label">{x.name}</InputLabel>
+            )}
+            <Select
+              labelId="demo-simple-select-outlined-label"
+              id="demo-simple-select-outlined"
+              value={newManageActors.destinyCarrierAgent}
+              onChange={e=>setNewManageActors({ ...newManageActors, destinyCarrierAgent: e.target.value})}
+              label="destinityCarrier"
+            >
+            {guestsSaved.filter(x=> (x.company === currentDestinyCarrier[0])).map(x=> 
+              <MenuItem value={x.name}>{x.name}</MenuItem>
+            )}
+            {guestsSaved.filter(x=> (x.company === newManageActors.currentDestinyCarrier)).map(x=> 
+              <MenuItem value={x.name}>{x.name}</MenuItem>
+            )}
+              <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
+            </Select>
+          </FormControl>
+        </div>
+
 
         <div className='buttons'>
           <ButtonSaveGreen title={'EDIT'} functionToExecute={editManageActors} />
-          {/* <ButtonSaveGray /> */}
         </div>
-
       </div>
     </div>
-
-
   )
 }
 
 export default EFIdManageActorsEdit;
+
+
+
+
+// {actors.map((type,index) => 
+//   <div key={index}>
+//     <h5>{type}</h5>
+//     <FormControl variant="outlined" className={classes.formControl}>
+//     <InputLabel>Select {type}</InputLabel>
+//       <Select
+//         value=''
+//         onChange={e => setNewManageActors({ ...newManageActors, currentOriginCarrier: e.target.value })}
+//       >
+//       {getAllActors.filter(actor => actor.typeCompany === type).map(filteredActor => (
+//         <MenuItem key={filteredActor._id} value={filteredActor.tradeName}>{filteredActor.tradeName}</MenuItem>
+//       ))}
+//         <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
+//       </Select>
+//     </FormControl>
+
+//     <FormControl variant="outlined" className={classes.formControl}>
+//       <InputLabel>Select a {type} Agent</InputLabel>
+//       <Select
+//         // value={originCarrier}
+//         // onChange={handleChangeCOC}
+//         label="oringinCarrier"
+//       >
+//         <MenuItem value={'10'}>Origin Carrier</MenuItem>
+//         <AddActorModal manageactors actors={actors} newActor={newActor} setNewActor={setNewActor} />
+//       </Select>
+//     </FormControl>
+//   </div>
+// )}

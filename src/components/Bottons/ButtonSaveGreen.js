@@ -65,7 +65,7 @@ const BotonSaveGreen = ({ title, functionToExecute }) => {
 
   return (
     <div>
-      <Button variant="contained" color="primary" className={classes.margin} onClick={() => functionToExecute}>
+      <Button variant="contained" color="primary" className={classes.margin} onClick={functionToExecute}>
         {title}
       </Button>
 
