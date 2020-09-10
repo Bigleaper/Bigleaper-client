@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
   accordion: {
     borderRadius: 5,
     background: '#CAF199',
+    marginBottom: 12,
   },
   avatar: {
     backgroundColor: '#26364B',
