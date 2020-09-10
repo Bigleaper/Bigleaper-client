@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Home from './views/Home';
 import Actors from './views/Actors';
 import SignIn from './views/SignIn';
@@ -31,7 +31,7 @@ function App() {
 
   return (
     <Fragment>
-      <Router>
+      <HashRouter>
         <Switch>
           <Route exact path="/">
             {token ? <Redirect to="/home" /> : <SignIn user={user} setUser={setUser} setToken={setToken} />}
@@ -64,7 +64,7 @@ function App() {
             <ProfileGuest />
           </Route>
         </Switch>
-      </Router>
+      </HashRouter>
     </Fragment>
   );
 }
