@@ -30,7 +30,7 @@ function App() {
 
 
   return (
-    
+    <div>
       <HashRouter>
         <Switch>
           <Route exact path="/">
@@ -65,6 +65,7 @@ function App() {
           </Route>
         </Switch>
       </HashRouter>
+      </div>
 
   );
 }
