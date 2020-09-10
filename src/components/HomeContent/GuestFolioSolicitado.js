@@ -21,12 +21,12 @@ const useStyles = makeStyles({
   }
   });
 
-const createData = (FolioID, Company, Status) => {
+const createData = (FolioID, Company, Name, Status) => {
     return { FolioID, Company, Status };
   }
   
   const rows = [
-    createData('Transpotes Delux', 'Jorge Estrada', 'Pnding'),
+    createData(2, 'Transpotes Delux', 'Jorge Estrada', 'Pnding'),
 
   ];
 
@@ -50,6 +50,7 @@ const GuestFolioSolicitado = () => {
                       {row.FolioID}
                     </TableCell>
                     <TableCell align="center">{row.Company}</TableCell>
+                    <TableCell align="center">{row.Name}</TableCell>
                     <TableCell align="center">{row.Status}</TableCell>
                   </TableRow>
                 ))}

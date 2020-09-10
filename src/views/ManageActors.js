@@ -109,7 +109,7 @@ const ManageActors = ({ actors, newActor, setNewActor }) => {
           <ExportFolioCreat idFolio={id} actors={actors} newActor={newActor} setNewActor={setNewActor} getAllActors={getAllActors}/>
         ) : 
         (
-          <EFIdManageActors actors={actors} newActor={newActor} setNewActor={setNewActor} setNewManageActor={setNewManageActor} newManageActor={newManageActor} postManageActors={postManageActors} getAllActors={getAllActors}/>
+          <EFIdManageActors actors={actors} newActor={newActor} setNewActor={setNewActor} setNewManageActor={setNewManageActor} newManageActor={newManageActor} postManageActors={postManageActors} getAllActors={getAllActors} idFolio={id}/>
         )}
       </div>
     </Fragment>

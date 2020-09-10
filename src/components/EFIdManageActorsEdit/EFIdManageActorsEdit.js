@@ -5,6 +5,7 @@ import ButtonSaveGreen from '../Bottons/ButtonSaveGreen';
 import tokenAuth from '../../config/tokenAuth';
 import clientAxios from '../../config/axios';
 import AddActorModal from '../AddActorModal/AddActorModal';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -235,7 +236,8 @@ const EFIdManageActorsEdit = ({ manageActors, idFolio, actors, newActor, setNewA
 
 
         <div className='buttons'>
-          <ButtonSaveGreen title={'EDIT'} functionToExecute={editManageActors} />
+          <Link to={`/exportfolios/${idFolio}`}>
+          <ButtonSaveGreen title={'EDIT'} functionToExecute={editManageActors} /></Link>
         </div>
       </div>
     </div>

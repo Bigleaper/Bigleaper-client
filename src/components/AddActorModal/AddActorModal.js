@@ -51,7 +51,8 @@ const AddActorModal = ({ actors, newActor, setNewActor, manageactors }) => {
       console.log(newActor);
       const response = await clientAxios.post('/actors', newActor)
       console.log(response);
-      cancelOrder()
+      handleClose();
+
     } catch (err) {
       console.log(err.response)
     }
