@@ -9,6 +9,7 @@ import './EFIdManageActors.css';
 import AddActorModal from '../AddActorModal/AddActorModal';
 import tokenAuth from '../../config/tokenAuth';
 import clientAxios from '../../config/axios';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNewManageActor, postManageActors, getAllActors }) => {
+const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNewManageActor, postManageActors, getAllActors, idFolio }) => {
 
     //state to save companyAgents added by the user
     const [guestsSaved, setGuestsSaved] = useState([])
@@ -212,7 +213,9 @@ const EFIdManageActors = ({ actors, newActor, setNewActor, newManageActor, setNe
         </div>
 
         <div className='button'>
-          <ButtonSaveGreen title={'SAVE'} functionToExecute={postManageActors} />
+          <Link to={`/exportfolios/${idFolio}`}>
+            <ButtonSaveGreen title={'SAVE'} functionToExecute={postManageActors} />
+          </Link>
         </div>
       </div>
     </div >

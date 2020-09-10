@@ -19,7 +19,7 @@ const ProfileGuestUser = () => {
 
   return (
     <div className={classes.root} className='containerGral'>
-      <div className='container'>
+      <div className='containerGuest'>
         <div className='subtitle'>
           <h3>Guest Profile</h3>
         </div>
