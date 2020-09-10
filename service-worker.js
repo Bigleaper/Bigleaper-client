@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Bigleaper-client/precache-manifest.70525450d65c9e4e04e9b3e2a624a281.js"
+  "/Bigleaper-client/precache-manifest.53426ecb3e557531d8ff5b77e4ad4cb3.js"
 );
 
 self.addEventListener('message', (event) => {

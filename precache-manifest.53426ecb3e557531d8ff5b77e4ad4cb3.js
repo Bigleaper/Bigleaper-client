@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "29e67cce877ead04dbd68703faf8cd9f",
+    "revision": "9d7a87c38f9cfae8e2e704f7fe43b164",
     "url": "/Bigleaper-client/index.html"
   },
   {
-    "revision": "81bcd9a48cf0f0655507",
+    "revision": "59969d0aff264c646bfe",
     "url": "/Bigleaper-client/static/css/main.14af01b0.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Bigleaper-client/static/js/2.0f3f3977.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "81bcd9a48cf0f0655507",
-    "url": "/Bigleaper-client/static/js/main.9f6ee66b.chunk.js"
+    "revision": "59969d0aff264c646bfe",
+    "url": "/Bigleaper-client/static/js/main.9a9292aa.chunk.js"
   },
   {
     "revision": "d52d43e4aa5b9ebeb7cb",
