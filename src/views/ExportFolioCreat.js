@@ -44,9 +44,6 @@ const ExportFolioCreat = ({ idFolio }) => {
 
   return (
     <Fragment>
-      <Menu />
-      <Header />
-      <ViewTitle title={'Export Folios'} user={'Folio Creation / Manage Actors'} />
       <div className={classes.container}>
         <EFIdManageActorsEdit manageActors={manageActors} />
       </div>

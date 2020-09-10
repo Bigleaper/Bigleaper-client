@@ -11,6 +11,8 @@ import data from '../prueba';
 import tokenAuth from '../config/tokenAuth';
 import clientAxios from '../config/axios'
 
+import MenuList from '../components/FloatingButton/MenuList';
+
 const drawerWidth = 240;
 const useStyles = makeStyles({
   container: {
@@ -61,7 +63,8 @@ const ExportFolioId = () => {
         <ViewTitle title={'Export Folios'} />
         <Container className={classes.container}>
           <ExportSteps />
-          <div className={classes.fbutton}><FloatingButton folioid={id} /></div>
+          <div className={classes.fbutton}><MenuList folioid={id} /></div>
+
           <FolioInformation folio={folio} />
         </Container>
       </div>
