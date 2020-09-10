@@ -27,20 +27,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const SignIn = ({ user, setUser }) => {
+const SignIn = ({ user, setUser, setToken }) => {
   const classes = useStyles();
 
   let history = useHistory()
+  let token = localStorage.getItem('token');
+  if (token) {
+    history.push('/home');
+  }
+
 
   const signInUser = async () => {
     try {
       const response = await clientAxios.post('/', user);
       console.log(response)
       localStorage.setItem('token', response.data.token)
-      let token = localStorage.getItem('token');
-      if (token) {
-        history.push('/home');
-      }
+      setToken(true)
     } catch (err) {
       //msg de error
       console.log(err.response.data.msg)

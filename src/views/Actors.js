@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Actors = ({actors, newActor, setNewActor}) => {
+const Actors = ({ actors, newActor, setNewActor }) => {
 
   const classes = useStyles();
   //state with actors
@@ -41,7 +41,7 @@ const Actors = ({actors, newActor, setNewActor}) => {
 
   useEffect(() => {
     getActors()
-  }, [])
+  }, [getAllActors])
 
 
   return (
@@ -49,10 +49,10 @@ const Actors = ({actors, newActor, setNewActor}) => {
       <Menu />
       <Header />
       <div>
-        <ViewTitle title={'Actors'} user={'Welcome usuario'}/>
-        <AddActorModal actors={actors} newActor={newActor} setNewActor={setNewActor}/>
+        <ViewTitle title={'Actors'} user={'Welcome usuario'} />
+        <AddActorModal actors={actors} newActor={newActor} setNewActor={setNewActor} />
         <div className={classes.container}>
-          {actors.map((actor, index) => (<ActorsTable key={index} actor={actor} getAllActors={getAllActors}/>))}
+          {actors.map((actor, index) => (<ActorsTable key={index} actor={actor} getAllActors={getAllActors} />))}
         </div>
       </div>
     </Fragment>
